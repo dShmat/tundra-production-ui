@@ -1,0 +1,42 @@
+<div>
+
+  <div class="flex justify-center px-4">
+    <h1 class="font-bold text-slate-800 text-5xl">CHOOSE YOUR PACKAGE</h1>
+  </div>
+
+  <div class="flex justify-center px-4 mt-16">
+    <div class="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+      @if (pricePackages$ | async; as pricePackages) {
+        @for (pricePack of pricePackages; track pricePack) {
+          <div class="flex justify-center">
+            <tp-price-card-top-pricing [pricePack]="pricePack"/>
+          </div>
+        }
+      }
+    </div>
+  </div>
+
+  <div class="flex justify-center px-4 mt-16">
+    <div class="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+      @if (pricePackages$ | async; as pricePackages) {
+        @for (pricePack of pricePackages; track pricePack) {
+          <div class="flex justify-center">
+            <tp-price-card-with-footer [pricePack]="pricePack"/>
+          </div>
+        }
+      }
+    </div>
+  </div>
+
+  <div class="flex justify-center px-4 mt-16">
+    <div class="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+      @if (pricePackages$ | async; as pricePackages) {
+        @for (pricePack of pricePackages; track pricePack) {
+          <div class="flex justify-center">
+            <tp-price-card-simple [pricePack]="pricePack"/>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+[
+  {
+    "header": "Basic",
+    "subheader": "Good for individuals",
+    "includedFeatures": [
+      {
+        "header": "5 hours of shoot",
+        "description": "w/PRO equipment"
+      },
+      {
+        "header": "∞ Editing",
+        "description": "Dedicated PRO Editors"
+      }
+    ],
+    "description": "In this package we can create multiple reels or/and long videos, pictures. For example: 1 long video, 10 reels, 50+ photos",
+    "price": {
+      "amount": "5.000",
+      "currency": "AED"
+    }
+  },
+  {
+    "header": "Comprehensive",
+    "subheader": "Good for businesses",
+    "includedFeatures": [
+      {
+        "header": "10 hours of shoot",
+        "description": "w/PRO equipment"
+      },
+      {
+        "header": "∞ Editing",
+        "description": "Dedicated PRO Editors"
+      },
+      {
+        "header": "10 hours of shoot",
+        "description": "w/PRO equipment"
+      },
+      {
+        "header": "∞ Editing",
+        "description": "Dedicated PRO Editors"
+      }
+    ],
+    "description": "In this package we can create multiple reels or/and long videos, pictures. For example: 2 long videos, 15 reels, 100+ photos",
+    "price": {
+      "amount": "9.000",
+      "currency": "AED"
+    }
+  },
+  {
+    "header": "Ultimate",
+    "subheader": "Ideal for agencies with multiple clients",
+    "includedFeatures": [
+      {
+        "header": "20 hours of shoot",
+        "description": "w/PRO equipment"
+      },
+      {
+        "header": "∞ Editing",
+        "description": "Dedicated PRO Editors"
+      }
+    ],
+    "description": "In this package we can create multiple reels or/and long videos, pictures. For example: 4 long videos, 25 reels, 200+ photos",
+    "price": {
+      "amount": "16.000",
+      "currency": "AED"
+    }
+  }
+]

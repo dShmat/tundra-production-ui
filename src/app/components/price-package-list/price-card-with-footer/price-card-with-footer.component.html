@@ -1,0 +1,23 @@
+<div class="flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg max-w-96 h-full">
+  <div class="p-4">
+    <h5 class="mb-1 text-slate-900 text-xl font-semibold">
+      {{pricePack.header}}
+    </h5>
+    <h6 class="mb-1 text-slate-500 text-sm font-light">
+      {{pricePack.subheader}}
+    </h6>
+    @for(feature of pricePack.includedFeatures; track feature) {
+      <p class="text-slate-800 leading-normal font-light">
+        <b class="font-semibold">{{feature.header}}:</b> {{feature.description}}
+      </p>
+    }
+    <p class="text-slate-800 leading-normal font-light">
+      {{pricePack.description}}
+    </p>
+  </div>
+  <div class="mx-3 border-t border-slate-200 pb-3 pt-2 px-1 mt-auto">
+    <span class="text-sm text-slate-600 font-medium">
+      {{pricePack.price.amount}} {{pricePack.price.currency}}
+    </span>
+  </div>
+</div>
