@@ -4,7 +4,7 @@ import {PriceCardWithFooterComponent} from './price-card-with-footer/price-card-
 import {PriceCardSimpleComponent} from './price-card-simple/price-card-simple.component';
 import {PricePackage} from '../../models/price-package.model';
 import {FileReaderService} from '../../services/file-reader.service';
-import {AsyncPipe, JsonPipe} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -13,8 +13,7 @@ import {Observable} from 'rxjs';
     PriceCardTopPricingComponent,
     PriceCardWithFooterComponent,
     PriceCardSimpleComponent,
-    AsyncPipe,
-    JsonPipe
+    AsyncPipe
   ],
   templateUrl: './price-package-list.component.html',
   styleUrl: './price-package-list.component.scss'
