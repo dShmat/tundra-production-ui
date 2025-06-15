@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Cyclorama",
+    "description": "Some information about Cyclorama like dimensions and Bla Bla Bla",
+    "imageURL": ""
+  },
+  {
+    "id": "2",
+    "name": "Stylized locations",
+    "description": "Some information about Decorated Zone like furniture, dimensions and Bla Bla Bla",
+    "imageURL": ""
+  },
+  {
+    "id": "3",
+    "name": "Terrace",
+    "description": "Coming Soon",
+    "imageURL": ""
+  }
+]

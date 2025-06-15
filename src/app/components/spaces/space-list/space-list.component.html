@@ -1,0 +1,14 @@
+<div class="py-12 lg:py-24">
+  <div class="mb-6 lg:mb-12 text-3xl lg:text-5xl align-middle text-center">Spaces</div>
+
+  <div class="grid grid-cols-1 place-items-center gap-5
+      md:flex md:flex-wrap md:justify-center md:gap-x-5 md:gap-y-5
+      xl:grid xl:grid-cols-3 xl:place-items-center">
+
+  @if (spaces$ | async; as spaces) {
+    @for (space of spaces; track space) {
+      <ts-space-item [space]="space" class="overflow-hidden cursor-pointer rounded-2xl relative group md:w-[48%] xl:w-auto max-h-112"/>
+    }
+  }
+  </div>
+</div>

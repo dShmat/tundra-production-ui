@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PricePackage} from '../models/price-package.model';
+import {Space} from '../models/space-model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +13,9 @@ export class FileReaderService {
 
   getPricePackages$(): Observable<PricePackage[]> {
     return this.http.get<PricePackage[]>('assets/data/price-packages.json');
+  }
+
+  getSpaceList$(): Observable<Space[]> {
+    return this.http.get<Space[]>('assets/data/spaces.json');
   }
 }
