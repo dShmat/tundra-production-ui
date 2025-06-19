@@ -1,14 +1,9 @@
-import { Component } from '@angular/core';
-import {AsyncPipe, NgOptimizedImage} from '@angular/common';
-import {
-  PriceCardTopPricingComponent
-} from '../price-package-list/price-card-top-pricing/price-card-top-pricing.component';
+import {Component} from '@angular/core';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
-  selector: 'tp-contacts',
+  selector: 'ts-contacts',
     imports: [
-        AsyncPipe,
-        PriceCardTopPricingComponent,
         NgOptimizedImage
     ],
   templateUrl: './contacts.component.html',

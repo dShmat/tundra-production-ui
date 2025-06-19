@@ -1,0 +1,12 @@
+<div class="pt-12 lg:pt-24">
+  <div class="mb-6 lg:mb-12 text-3xl lg:text-5xl align-middle text-center">Equipment</div>
+  <div class="grid grid-cols-1 place-items-center gap-5
+      md:grid-cols-2 xl:grid-cols-3">
+    @if (equipment$ | async; as equipment) {
+      @for (item of equipment; track item.id) {
+        <ts-general-equipment-card [item]="item" class="overflow-hidden cursor-pointer rounded-2xl relative group w-auto max-h-73"/>
+      }
+    }
+    <ts-general-equipment-card [item]="moreItem" [isMoreCard]="true" class="overflow-hidden cursor-pointer rounded-2xl relative group w-auto max-h-73"/>
+  </div>
+</div>

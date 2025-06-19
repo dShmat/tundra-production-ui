@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
-import {PricePackageListComponent} from '../../components/price-package-list/price-package-list.component';
+import {Component} from '@angular/core';
 import {HeroImageSectionComponent} from '../../components/hero-image-section/hero-image-section.component';
-import {DescriptionSectionComponent} from '../../components/description-section/description-section.component';
 import {ContactsComponent} from '../../components/contacts/contacts.component';
-import {SpacesComponent} from '../../components/spaces/spaces.component';
+import {SpaceListComponent} from '../../components/spaces/space-list/space-list.component';
+import {
+  GeneralEquipmentListComponent
+} from '../../components/equipment/general-equipment-list/general-equipment-list.component';
 
 @Component({
   selector: 'pt-home-page',
   imports: [
-    PricePackageListComponent,
     HeroImageSectionComponent,
-    DescriptionSectionComponent,
     ContactsComponent,
-    SpacesComponent
+    SpaceListComponent,
+    GeneralEquipmentListComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'

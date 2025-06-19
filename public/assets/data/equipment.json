@@ -1,0 +1,14 @@
+[
+  {
+    "id": "0",
+    "name": "godox AD600Pro",
+    "description": "Learn More",
+    "imageURL": "assets/img/light_godox.avif"
+  },
+  {
+    "id": "1",
+    "name": "amaran 300c",
+    "description": "Learn More",
+    "imageURL": "assets/img/amaran.avif"
+  }
+]

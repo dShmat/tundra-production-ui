@@ -3,7 +3,7 @@ import {ImageSliderComponent} from '../image-slider/image-slider.component';
 import {SlideInterface} from '../../models/slide-interface';
 
 @Component({
-  selector: 'tp-hero-image-section',
+  selector: 'ts-hero-image-section',
   imports: [
     ImageSliderComponent
   ],

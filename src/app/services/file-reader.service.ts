@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PricePackage} from '../models/price-package.model';
 import {Space} from '../models/space-model';
+import {Equipment} from '../models/equipment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class FileReaderService {
 
   getSpaceList$(): Observable<Space[]> {
     return this.http.get<Space[]>('assets/data/spaces.json');
+  }
+
+  getEquipmentList$(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>('assets/data/equipment.json');
   }
 }
