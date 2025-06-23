@@ -1,7 +1,7 @@
-<div class="md:flex gap-5 w-full justify-between">
+<div class="max-w-8xl md:flex gap-5 justify-between">
   <ts-equipment-filter-panel [initSelectedEquipment]="selectedEquipment()"
                              (filteredEquipment)="filterEquipment($event)"/>
-  <div class="h-full">
+  <div class="w-full h-full">
     @if (filteredEquipment.length > 0) {
       <ts-equipment-list [equipment]="filteredEquipment"/>
     } @else {

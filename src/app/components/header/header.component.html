@@ -8,16 +8,16 @@
     <div class="hidden lg:block">
       <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
         <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" class="flex items-center font-extralight">home</a>
+          <a href="/" class="flex items-center font-extralight">home</a>
         </li>
         <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" class="flex items-center font-extralight">spaces</a>
+          <a [routerLink]="['/']" fragment="spaces" class="flex items-center font-extralight">spaces</a>
         </li>
         <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
           <a href="#" class="flex items-center font-extralight">book</a>
         </li>
         <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" class="flex items-center font-extralight">contacts</a>
+          <a [routerLink]="['/']" fragment="contacts" class="flex items-center font-extralight">contacts</a>
         </li>
       </ul>
     </div>
