@@ -1,0 +1,12 @@
+<div class="md:flex gap-5 w-full justify-between">
+  <ts-equipment-filter-panel [initSelectedEquipment]="selectedEquipment()"
+                             (filteredEquipment)="filterEquipment($event)"/>
+  <div class="h-full">
+    @if (filteredEquipment.length > 0) {
+      <ts-equipment-list [equipment]="filteredEquipment"/>
+    } @else {
+      <div class="flex justify-center items-center h-full">
+      </div>
+    }
+  </div>
+</div>

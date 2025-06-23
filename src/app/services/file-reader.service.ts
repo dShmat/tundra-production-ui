@@ -20,6 +20,10 @@ export class FileReaderService {
     return this.http.get<Space[]>('assets/data/spaces.json');
   }
 
+  getGeneralEquipmentList$(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>('assets/data/general-equipment.json');
+  }
+
   getEquipmentList$(): Observable<Equipment[]> {
     return this.http.get<Equipment[]>('assets/data/equipment.json');
   }

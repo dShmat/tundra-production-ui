@@ -17,12 +17,13 @@ import {AsyncPipe} from '@angular/common';
 export class GeneralEquipmentListComponent {
 
   private readonly fileReaderService = inject(FileReaderService);
-  public equipment$: Observable<Equipment[]> = this.fileReaderService.getEquipmentList$();
+  public equipment$: Observable<Equipment[]> = this.fileReaderService.getGeneralEquipmentList$();
 
   moreItem: Equipment = {
     id: -1,
     name: "",
     description: "",
+    type: "",
     imageURL: "assets/img/more.avif"
   }
 

@@ -1,4 +1,5 @@
-<div class="w-full md:h-100 xl:min-h-67 xl:max-h-66">
+<div class="w-full md:h-100 xl:min-h-67 xl:max-h-66"
+     (click)="moveToEquipment()">
   <div class="object-cover w-full aspect-square scale-110 transition duration-300 ease-in-out lg:scale-100 lg:group-hover:scale-110">
     <img ngSrc="{{ item().imageURL }}"
          width="1356" height="904"
@@ -8,13 +9,17 @@
     >
   </div>
   @if (!isMoreCard()) {
-    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-22 transition-20 duration-300 ease-in-out
-                lg:h-14 lg:group-hover:h-20">
+    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-14 transition-20 duration-300 ease-in-out
+                lg:h-14"
+         [class.h-22]="isClickable()"
+         [class.lg:group-hover:h-20]="isClickable()">
       <h3 class="text-white text-lg font-bold">{{ item().name }}</h3>
-      <p class="text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out
+      @if (isClickable()) {
+        <p class="text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out
                 lg:opacity-0 lg:group-hover:opacity-75 underline">
-        {{ item().description }}
-      </p>
+          {{ item().description }}
+        </p>
+      }
     </div>
   }
 </div>
