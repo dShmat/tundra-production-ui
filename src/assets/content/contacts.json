@@ -1,0 +1,27 @@
+{
+  "phone": "+48 123 123 123",
+  "email": "hello@mystudio.example",
+  "address": "ul. Przykladowa 12, 00-001 Warszawa, Poland",
+  "socials": [
+    {
+      "name": "Instagram",
+      "icon": "assets/images/social/instagram.svg",
+      "url": "https://instagram.com/mystudio"
+    },
+    {
+      "name": "TikTok",
+      "icon": "assets/images/social/tiktok.svg",
+      "url": "https://tiktok.com/@mystudio"
+    },
+    {
+      "name": "Facebook",
+      "icon": "assets/images/social/facebook.svg",
+      "url": "https://facebook.com/mystudio"
+    },
+    {
+      "name": "YouTube",
+      "icon": "assets/images/social/youtube.svg",
+      "url": "https://youtube.com/@mystudio"
+    }
+  ]
+}

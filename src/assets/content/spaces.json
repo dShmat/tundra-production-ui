@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cyclorama",
+    "name": "Cyclorama",
+    "description": "Seamless white cyc with overhead grid.",
+    "image": "assets/images/spaces/cyclorama.jpg"
+  },
+  {
+    "id": "stylised",
+    "name": "Stylised location",
+    "description": "Designed sets with changeable props.",
+    "image": "assets/images/spaces/stylised.jpg"
+  },
+  {
+    "id": "terrace",
+    "name": "Terrace",
+    "description": "Open-air terrace with city light.",
+    "image": "assets/images/spaces/terrace.jpg"
+  }
+]

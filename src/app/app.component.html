@@ -1,8 +1,5 @@
-<div class="w-full">
-  <ts-header/>
-  <div class="w-full px-6 lg:px-12 flex justify-center">
-    <router-outlet/>
-  </div>
-  <ts-footer/>
-  <div class="w-full fixed top-0 left-0 right-0 bottom-0 bg-gradient-to-tr from-blue-500 via-fuchsia-500 to-yellow-300 z-[-999] bg-blur-xl opacity-15"></div>
-</div>
+<ts-header/>
+<main class="flex-1">
+  <router-outlet></router-outlet>
+</main>
+<ts-footer/>

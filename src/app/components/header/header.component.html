@@ -1,34 +1,48 @@
-<!--<nav class="block w-full h-25 px-6 lg:px-12 w-full top-3 ">-->
-  <nav class="block w-full h-25 px-6 lg:px-12 w-full sticky top-0 lg:px-8 lg:py-3 backdrop-blur-lg z-[9999]">
-  <div class="h-full flex flex-wrap items-center justify-between mx-auto text-slate-800 max-w-8xl">
-    <a href="#"
-       class="mr-4 block cursor-pointer text-base text-slate-800 font-semibold">
-      <img ngSrc="/assets/icons/tundra-logo-no-padding.svg" alt="logo" height="60" width="180" priority/>
-    </a>
-    <div class="hidden lg:block">
-      <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-        <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="/" class="flex items-center font-extralight">home</a>
-        </li>
-        <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a [routerLink]="['/']" fragment="spaces" class="flex items-center font-extralight">spaces</a>
-        </li>
-        <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a href="#" class="flex items-center font-extralight">book</a>
-        </li>
-        <li class="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-          <a [routerLink]="['/']" fragment="contacts" class="flex items-center font-extralight">contacts</a>
-        </li>
-      </ul>
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="glass px-4 md:px-8 py-3" [class.glass]="isScrolled() || !isHome()" [class.blured]="!isScrolled() && isHome()">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a class="flex items-center gap-3" routerLink="/">
+        @if (isScrolled() || !isHome()) {
+          <img src="images/logo_dark.svg" class="h-9 rounded-md" alt="logo">
+        } @else {
+          <img src="images/logo_light.svg" class="h-9 rounded-md" alt="logo">
+        }
+      </a>
+      <nav class="hidden md:flex items-center gap-4 text-sm" [class.text-black]="isScrolled() || !isHome()"
+           [class.text-white]="!isScrolled() && isHome()">
+        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('spaces')">Spaces</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer"
+           (click)="scrollTo('equipment')">Equipment</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('contact')">Contact</a>
+        <a (click)="openContactDialog()" class="btn-primary btn-primary--whatsap inline-block">Let's talk</a>
+      </nav>
+      <div class="md:hidden flex items-center">
+        <a (click)="openContactDialog()" class="btn-primary btn-primary--whatsap inline-block">Let's talk</a>
+        <button class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())">
+                <span class="text-white"
+                      [class.text-black]="isScrolled() || !isHome()"
+                      [class.text-white]="!isScrolled() && isHome()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
+                         stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </span>
+        </button>
+      </div>
     </div>
-    <button
-      class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
-      type="button">
-      <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </span>
-    </button>
   </div>
-</nav>
+  <div class="md:hidden px-4 bg-white/70 backdrop-blur-md transition-all duration-300 overflow-hidden grid opacity-0
+    [grid-template-rows:0fr] origin-top bg-white"
+       [ngClass]="mobileOpen() ? 'glass opacity-100 [grid-template-rows:1fr]' : 'pointer-events-none'">
+    <div class="min-h-0 py-2">
+      <nav class="max-w-7xl mx-auto flex flex-col gap-1 text-sm">
+        <a class="px-3 py-2 rounded hover:bg-white/30"
+           (click)="scrollTo('spaces'); mobileOpen.set(false)">Spaces</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30"
+           (click)="scrollTo('equipment'); mobileOpen.set(false)">Equipment</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30"
+           (click)="scrollTo('contact'); mobileOpen.set(false)">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>

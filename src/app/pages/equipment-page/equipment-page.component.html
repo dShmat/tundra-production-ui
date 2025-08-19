@@ -1,12 +1,35 @@
-<div class="max-w-8xl md:flex gap-5 justify-between">
-  <ts-equipment-filter-panel [initSelectedEquipment]="selectedEquipment()"
-                             (filteredEquipment)="filterEquipment($event)"/>
-  <div class="w-full h-full">
-    @if (filteredEquipment.length > 0) {
-      <ts-equipment-list [equipment]="filteredEquipment"/>
-    } @else {
-      <div class="flex justify-center items-center h-full">
-      </div>
+<div class="mx-auto max-w-6xl px-4 py-20">
+  <div class="glass rounded-xl p-3 mt-4">
+    <div class="flex flex-wrap gap-2 text-sm">
+      <button class="btn-soft glass" (click)="setType(undefined)">All</button>
+      <button class="btn-soft glass" (click)="setType('light')">Light</button>
+      <button class="btn-soft glass" (click)="setType('cameras')">Cameras</button>
+      <button class="btn-soft glass" (click)="setType('other')">Other</button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+    @if (equipment$() | async; as list) {
+      @for (item of list; track item.id) {
+        <div class="group glass rounded-2xl overflow-hidden">
+          <img [src]="item.image" [alt]="item.name"
+               class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105">
+          <div
+            class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-20 transition-20 duration-300 ease-in-out lg:h-12 lg:group-hover:h-20">
+            <h3 class="text-white font-semibold">{{ item.name }}</h3>
+            <p
+              class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
+              {{ item.description }}
+            </p>
+            @if (item.specs) {
+              <p
+                class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
+                {{ item.specs }}
+              </p>
+            }
+          </div>
+        </div>
+      }
     }
   </div>
 </div>

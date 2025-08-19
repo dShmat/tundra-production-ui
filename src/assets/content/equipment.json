@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a1",
+    "name": "Godox SL60W",
+    "type": "light",
+    "image": "images/equipment/light_init.png",
+    "specs": "60W LED"
+  },
+  {
+    "id": "a2",
+    "name": "Aputure 300D II",
+    "type": "light",
+    "image": "images/equipment/light_init.png",
+    "specs": "Daylight COB"
+  },
+  {
+    "id": "b1",
+    "name": "Sony A7 IV",
+    "type": "cameras",
+    "image": "images/equipment/cameras_init.png",
+    "specs": "33MP FF"
+  },
+  {
+    "id": "b2",
+    "name": "Canon EOS R5",
+    "type": "cameras",
+    "image": "images/equipment/cameras_init.png",
+    "specs": "45MP FF"
+  },
+  {
+    "id": "c1",
+    "name": "C-stands",
+    "type": "other",
+    "image": "images/equipment/other.jpg"
+  },
+  {
+    "id": "c2",
+    "name": "Backdrop System",
+    "type": "other",
+    "image": "images/equipment/other.jpg"
+  }
+]

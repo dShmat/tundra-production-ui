@@ -12,9 +12,6 @@ export const routes: Routes = [
     path: 'equipment', component: EquipmentPageComponent,
   },
   {
-    path: 'equipment/:category', component: EquipmentPageComponent,
-  },
-  {
     path: 'rules', component: RulesPageComponent,
   },
   {
