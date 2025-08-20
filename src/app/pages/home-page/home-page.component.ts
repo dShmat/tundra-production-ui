@@ -11,8 +11,7 @@ import {BookingDialogComponent} from '../../components/booking-dialog/booking-di
     NgForOf,
     NgOptimizedImage
   ],
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  templateUrl: './home-page.component.html'
 })
 export class HomePageComponent implements AfterViewInit {
 
@@ -21,7 +20,7 @@ export class HomePageComponent implements AfterViewInit {
 
   spaces: Card[] = [
     { image: 'images/spaces/cyclorama_init.jpg', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
-    { image: 'images/spaces/img.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
+    { image: 'images/spaces/stylised_init.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
     { image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
   ];
 
@@ -47,10 +46,6 @@ export class HomePageComponent implements AfterViewInit {
 
   goToEquipment(type?: 'light'|'cameras'|'other') {
     this.router.navigate(['/equipment'], { queryParams: { type } });
-  }
-
-  scrollTo(id: string){
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   ngAfterViewInit(): void {

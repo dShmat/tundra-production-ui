@@ -8,8 +8,7 @@ declare const Calendly: any;
   imports: [
     FormsModule
   ],
-  templateUrl: './booking-dialog.component.html',
-  styleUrl: './booking-dialog.component.scss'
+  templateUrl: './booking-dialog.component.html'
 })
 export class BookingDialogComponent implements AfterViewInit {
   ngAfterViewInit(): void {

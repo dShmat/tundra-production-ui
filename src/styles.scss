@@ -40,7 +40,7 @@ body::before {
 
 
 /* Buttons */
-.btn-primary {
+.btn {
   display:inline-flex;
   align-items:center;
   justify-content: center;
@@ -48,12 +48,34 @@ body::before {
   padding:.75rem 1.1rem;
   border-radius:14px;
   color:#fff;
-  background:linear-gradient(135deg, var(--primary-0), var(--primary-1));
   transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
 
+  &--primary {
+    background:linear-gradient(135deg, var(--primary-0), var(--primary-1));
+  }
+
   &--whatsap {
+    background:linear-gradient(135deg, var(--primary-0), var(--primary-1));
     padding: .25rem 0.5rem;
   }
+
+  &--soft {
+    background: var(--glass);
+    color:black;
+    border-radius:14px;
+    padding:.6rem .9rem;
+
+    &.active {
+      background:linear-gradient(135deg, var(--primary-0), var(--primary-1));
+      color:white;
+    }
+  }
+
+  &:hover {
+    transform:translateY(-2px);
+    filter:saturate(3);
+  }
+
 }
-.btn-primary:hover{ transform:translateY(-2px); filter:saturate(3); }
-.btn-soft{ border-radius:14px; padding:.6rem .9rem; }
+
+

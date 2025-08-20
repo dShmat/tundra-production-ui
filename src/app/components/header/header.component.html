@@ -14,10 +14,10 @@
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer"
            (click)="scrollTo('equipment')">Equipment</a>
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('contact')">Contact</a>
-        <a (click)="openContactDialog()" class="btn-primary btn-primary--whatsap inline-block">Let's talk</a>
+        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk</a>
       </nav>
       <div class="md:hidden flex items-center">
-        <a (click)="openContactDialog()" class="btn-primary btn-primary--whatsap inline-block">Let's talk</a>
+        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk</a>
         <button class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())">
                 <span class="text-white"
                       [class.text-black]="isScrolled() || !isHome()"

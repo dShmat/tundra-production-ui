@@ -39,4 +39,6 @@ export class EquipmentPageComponent implements AfterViewInit {
     }, {threshold: 0.15});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
+
+  protected readonly isDefined = isDefined;
 }

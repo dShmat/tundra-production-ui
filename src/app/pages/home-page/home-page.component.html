@@ -5,7 +5,7 @@
   <div class="relative z-10 text-white px-6">
     <h1 class="text-4xl md:text-6xl font-bold leading-tight">Most friendly studio</h1>
     <p class="mt-3 text-lg opacity-90">Light‑filled spaces & professional equipment for your best shots.</p>
-    <a (click)="openBooking()" class="mt-6 btn-primary inline-block">Book now</a>
+    <a (click)="openBooking()" class="mt-6 btn btn--primary inline-block">Book now</a>
   </div>
   </section>
 
@@ -88,29 +88,6 @@
     </div>
 
     <div class="reveal flex flex-col justify-center align-center">
-      <!--<div class="mt-8">
-        <h3 class="font-semibold mb-3">Follow us</h3>
-        <div class="flex flex-wrap gap-3">
-          <a *ngFor="let s of contact.socials"
-             [href]="s.href" target="_blank" rel="noopener"
-             class="group inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-white/70 hover:bg-white/90 transition
-                    shadow-sm">
-              <svg class="w-4 h-4 text-slate-700" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/>
-              </svg>
-              <svg class="w-4 h-4 text-slate-700" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 22v-8h3l1-4h-4V7.5c0-1.16.32-1.95 2-1.95h2V2.1C16.65 2.04 15.28 2 14 2c-3.22 0-5 1.66-5 4.7V10H6v4h3v8h4z"/>
-              </svg>
-              <svg class="w-4 h-4 text-slate-700" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2h3a5.5 5.5 0 004 4v3a8.5 8.5 0 01-4-1.1V14a6 6 0 11-6-6c.35 0 .69.03 1 .08V11a3 3 0 103 3V2z"/>
-              </svg>
-              <svg class="w-4 h-4 text-slate-700" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23 12s0-3.4-.44-5.02a3 3 0 00-2.13-2.13C18.8 4.4 12 4.4 12 4.4s-6.8 0-8.43.45A3 3 0 001.44 6.98C1 8.6 1 12 1 12s0 3.4.44 5.02a3 3 0 002.13 2.13C5.2 19.6 12 19.6 12 19.6s6.8 0 8.43-.45a3 3 0 002.13-2.13C23 15.4 23 12 23 12zM10 15.5V8.5L16 12l-6 3.5z"/>
-              </svg>
-            <span class="font-medium text-slate-800">{{ s.label }}</span>
-          </a>
-        </div>
-      </div>-->
       <div class="flex mt-auto gap-4 text-slate-600 justify-center">
         <a href="//instagram.com" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
           <img ngSrc="icons/instagram.svg" alt="logo" height="25" width="25"/>
@@ -128,30 +105,9 @@
           <img ngSrc="icons/telegram.svg" alt="logo" height="25" width="25"/>
         </a>
       </div>
-      <button class="mt-4 md:mt-auto btn-primary" (click)="openBooking()">
+      <button class="mt-4 md:mt-auto btn btn--primary" (click)="openBooking()">
         Book Studio Now
       </button>
     </div>
   </div>
 </section>
-
-<!--<section id="contact" class="py-16 px-4 md:px-8">
-  <div class="max-w-4xl mx-auto glass rounded-2xl p-6 reveal">
-    <h2 class="text-2xl md:text-3xl font-semibold">Contact</h2>
-    <form class="grid md:grid-cols-2 gap-4 mt-4"
-          onsubmit="event.preventDefault(); window.location.href='mailto:hello@mystudio.example?subject=Studio%20booking'">
-      <input type="text" placeholder="Your name" class="px-4 py-3 rounded-xl bg-white/70 outline-none"
-             required>
-      <input type="email" placeholder="Email" class="px-4 py-3 rounded-xl bg-white/70 outline-none" required>
-      <input type="tel" placeholder="Phone"
-             class="px-4 py-3 rounded-xl bg-white/70 outline-none md:col-span-2">
-      <textarea rows="4" placeholder="Tell us about your shoot…"
-                class="px-4 py-3 rounded-xl bg-white/70 outline-none md:col-span-2" required></textarea>
-      <div class="md:col-span-2 flex gap-3">
-        <button type="submit" class="btn-primary">Send Email</button>
-        <a href="https://wa.me/15551234567?text=Hi%20I%27d%20like%20to%20book%20a%20session" target="_blank"
-           class="px-6 py-3 rounded-xl bg-white/70 hover:brightness-105">WhatsApp</a>
-      </div>
-    </form>
-  </div>
-</section>-->

@@ -1,12 +1,133 @@
-<div class="max-w-4xl">
-  <p class="text-left rtl:text-right text-4xl font-extralight leading-relaxed">Tundra Studio Rules</p>
-  <p class="text-left rtl:text-right">
-    The policy of the The policy of the Rooms Studio FZ-LLC (hereinafter Photo Studio) is a public offer.
-    “Photo Studio” includes the studio and all property owned by the Rooms Studio FZ-LLC, and “Client” is the individual or entity renting the Rooms or/and equipment.
-    Any Client, from the moment of booking or from the beginning of using the studio space, recognizes as having accepted the public offer in full and undertakes to follow the
-    Rules.sss (hereinafter Photo Studio) is a public offer.
-    “Photo Studio” includes the studio and all property owned by the Rooms Studio FZ-LLC,
-    and “Client” is the individual or entity renting the Rooms or/and equipment.
-    Any Client, from the moment of booking or from the beginning of using the studio space,
-    recognizes as having accepted the public offer in full and undertakes to follow the Rules.</p>
+<div class="max-w-5xl mx-auto px-6 md:px-10 py-12 my-24 bg-white/90 backdrop-blur rounded-3xl shadow-xl">
+  <header class="mb-8">
+    <h1 class="text-4xl md:text-5xl font-light tracking-tight">Studio Rules</h1>
+    <p class="text-sm text-slate-500 mt-2">Last updated: <span>2025-08-20</span></p>
+    <p class="mt-4 text-slate-700 leading-relaxed">
+      These rules ensure a safe, productive, and respectful environment for all guests. By booking or entering the
+      studio, you agree to follow the policies below.
+    </p>
+  </header>
+
+  <nav aria-label="Sections" class="mb-10">
+    <ul class="flex flex-wrap gap-3 text-sm text-slate-600">
+      <li><a class="hover:underline" (click)="scrollTo('booking')">Booking & Payments</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('access')">Access & Hours</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('use')">Use of Space</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('equipment')">Equipment</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('safety')">Safety</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('guests')">Guests & Capacity</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('decor')">Sets & Decorations</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('food')">Food & Drinks</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('restricted')">Restricted Items</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('cleaning')">Cleanliness</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('overtime')">Overtime</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('damage')">Damages & Liability</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('privacy')">Privacy</a></li>
+      <li><a class="hover:underline" (click)="scrollTo('contact')">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="booking" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Booking & Payments</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Bookings are confirmed once payment is received. Unpaid holds may be released without notice.</li>
+      <li>Setup and breakdown must be completed within your reserved time.</li>
+      <li>Reschedules/cancellations follow our policy (see your confirmation email). Fees may apply.</li>
+      <li>Commercial projects may require proof of insurance and/or permits.</li>
+    </ul>
+  </section>
+
+  <section id="access" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Access, Check‑In & Hours</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Standard hours: <span class="font-medium">09:00–21:00</span> (custom times by request).</li>
+      <li>Please arrive on time; late arrival does not extend your booking.</li>
+      <li>Check‑in and orientation are required before use of any equipment.</li>
+      <li>Only registered guests are permitted entry; keep doors closed at all times.</li>
+    </ul>
+  </section>
+
+  <section id="use" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Use of Space</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Protect floors and walls. Use furniture pads and sandbags where appropriate.</li>
+      <li>Do not drill, nail, or permanently alter any surface.</li>
+      <li>Respect neighbors; keep sound at reasonable levels.</li>
+      <li>Cyclorama: shoes clean; no hard wheels; no painting unless pre‑approved.</li>
+    </ul>
+  </section>
+
+  <section id="equipment" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Equipment</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Included gear must be used safely and returned to its original condition and location.</li>
+      <li>Only qualified operators may handle electrical, grip, and lighting equipment.</li>
+      <li>Report defects immediately. Do not use damaged gear.</li>
+      <li>Additional rentals are available on request and billed separately.</li>
+    </ul>
+  </section>
+
+  <section id="safety" class="mb-8">
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Food and drinks are permitted in designated areas only; keep them away from gear.</li>
+      <li>No smoking or vaping inside the studio.</li>
+      <li>Alcohol requires prior approval; local laws and permits must be observed.</li>
+    </ul>
+  </section>
+
+  <section id="restricted" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Restricted Items & Activities</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>No weapons, illegal substances, or hazardous materials.</li>
+      <li>No rooftop access or exterior mounting without written permission.</li>
+      <li>Drone use indoors requires trained operator and prior approval.</li>
+    </ul>
+  </section>
+
+  <section id="cleaning" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Cleanliness & Reset</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Leave the space as you found it: trash in bins, furniture/equipment returned.</li>
+      <li>Excessive mess (including glitter/paint/spills) incurs an additional cleaning fee.</li>
+      <li>Report any damages before departure.</li>
+    </ul>
+  </section>
+
+  <section id="overtime" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Overtime & Penalties</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>Overtime is billed in <span class="font-medium">30‑minute</span> increments. Exiting the building must occur before your end time.</li>
+      <li>Unauthorized overtime or early access will be charged at the posted rate or higher.</li>
+      <li>Repeated violations may result in refusal of future bookings.</li>
+    </ul>
+  </section>
+
+  <section id="damage" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Damages & Liability</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>You are responsible for all persons in your party and any damage during your booking.</li>
+      <li>Fees apply for repainting the cyclorama, repairs, or replacement of damaged gear.</li>
+      <li>The studio is not liable for personal property lost, stolen, or left behind.</li>
+    </ul>
+  </section>
+
+  <section id="privacy" class="mb-8">
+    <h2 class="text-2xl font-semibold mb-3">Privacy & Security</h2>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700">
+      <li>CCTV may be in operation in common areas for safety and security.</li>
+      <li>Respect other clients’ privacy; filming outside your reserved area is prohibited.</li>
+      <li>Personal data is handled according to our <a routerLink="/privacy" class="underline">Privacy Policy</a>.</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="mb-2">
+    <h2 class="text-2xl font-semibold mb-3">Contact</h2>
+    <p class="text-slate-700 leading-relaxed">
+      Questions about these rules? Contact us at <a href="mailto:hello@yourdomain.com" class="underline">hello&#64;yourdomain.com</a>.
+    </p>
+  </section>
+
+  <div class="mt-10">
+    <a class="text-sm text-slate-600 hover:underline" (click)="scrollTo('booking')">Back to top</a>
+  </div>
 </div>

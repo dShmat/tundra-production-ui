@@ -10,8 +10,7 @@ import {AsyncPipe} from '@angular/common';
     FormsModule,
     AsyncPipe
   ],
-  templateUrl: './contact-dialog.component.html',
-  styleUrl: './contact-dialog.component.scss'
+  templateUrl: './contact-dialog.component.html'
 })
 export class ContactDialogComponent {
   private dialogRef = inject(MatDialogRef<ContactDialogComponent>);

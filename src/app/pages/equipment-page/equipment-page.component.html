@@ -1,10 +1,10 @@
 <div class="mx-auto max-w-6xl px-4 py-20">
-  <div class="glass rounded-xl p-3 mt-4">
+  <div class="p-3 mt-4">
     <div class="flex flex-wrap gap-2 text-sm">
-      <button class="btn-soft glass" (click)="setType(undefined)">All</button>
-      <button class="btn-soft glass" (click)="setType('light')">Light</button>
-      <button class="btn-soft glass" (click)="setType('cameras')">Cameras</button>
-      <button class="btn-soft glass" (click)="setType('other')">Other</button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="!isDefined(typeSig())" (click)="setType(undefined)">All</button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === 'light'" (click)="setType('light')">Light</button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === 'cameras'" (click)="setType('cameras')">Cameras</button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === 'other'" (click)="setType('other')">Other</button>
     </div>
   </div>
 

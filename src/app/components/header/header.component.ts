@@ -3,7 +3,6 @@ import {NavigationEnd, Router, RouterLink} from '@angular/router';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {distinctUntilChanged, filter, map, startWith} from 'rxjs';
 import {NgClass} from '@angular/common';
-import {BookingDialogComponent} from '../booking-dialog/booking-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {ContactDialogComponent} from '../contact-dialog/contact-dialog.component';
 
@@ -13,8 +12,7 @@ import {ContactDialogComponent} from '../contact-dialog/contact-dialog.component
   imports: [
     NgClass,
     RouterLink
-  ],
-  styleUrl: './header.component.scss'
+  ]
 })
 export class HeaderComponent {
   mobileOpen = signal(false);
@@ -46,7 +44,11 @@ export class HeaderComponent {
   );
 
   scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    if(this.isHome()) {
+      document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    } else {
+      this.router.navigate(['/'], { fragment: id });
+    }
   }
 
   openContactDialog() {
