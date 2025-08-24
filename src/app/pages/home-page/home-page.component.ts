@@ -19,13 +19,13 @@ export class HomePageComponent implements AfterViewInit {
   dialog = inject(MatDialog);
 
   spaces: Card[] = [
-    { image: 'images/spaces/cyclorama_init.jpg', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
-    { image: 'images/spaces/stylised_init.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
+    { image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
+    { image: 'images/spaces/stylised.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
     { image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
   ];
 
   equipment: Card[] = [
-    { image: 'images/equipment/light_init.png', name: 'Light', description: 'Strobes, continuous & modifiers.', type: 'light' },
+    { image: 'images/equipment/light/amaran-300c-test.png', name: 'Light', description: 'Video & Flash light.', type: 'light' },
     { image: 'images/equipment/cameras_init.png', name: 'Cameras', description: 'Full‑frame bodies & lenses.', type: 'cameras' },
     { image: 'images/equipment/more_init.png', name: 'Other', description: 'Grip, stands, backdrops & more.' }
   ];

@@ -3,9 +3,9 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
       <a class="flex items-center gap-3" routerLink="/">
         @if (isScrolled() || !isHome()) {
-          <img src="images/logo_dark.svg" class="h-9 rounded-md" alt="logo">
+          <img src="icons/tundra-logo-black.svg" class="h-4 rounded-md" alt="logo">
         } @else {
-          <img src="images/logo_light.svg" class="h-9 rounded-md" alt="logo">
+          <img src="icons/tundra-logo-white.svg" class="h-4 rounded-md" alt="logo">
         }
       </a>
       <nav class="hidden md:flex items-center gap-4 text-sm" [class.text-black]="isScrolled() || !isHome()"

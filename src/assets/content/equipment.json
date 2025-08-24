@@ -1,18 +1,48 @@
 [
   {
-    "id": "a1",
-    "name": "Godox SL60W",
+    "id": "l1",
+    "name": "Amaran 60x",
     "type": "light",
-    "image": "images/equipment/light_init.png",
-    "specs": "60W LED"
+    "image": "images/equipment/light/amaran-60x-test.png",
+    "specs": "1 item"
   },
   {
-    "id": "a2",
-    "name": "Aputure 300D II",
+    "id": "l2",
+    "name": "Amaran 100d",
     "type": "light",
-    "image": "images/equipment/light_init.png",
-    "specs": "Daylight COB"
+    "image": "images/equipment/light/amaran-100d-test.png",
+    "specs": "1 item"
   },
+  {
+    "id": "l3",
+    "name": "Amaran 150c",
+    "type": "light",
+    "image": "images/equipment/light/amaran-150c-test.png",
+    "specs": "1 item"
+  },
+  {
+    "id": "l4",
+    "name": "Amaran 300c",
+    "type": "light",
+    "image": "images/equipment/light/amaran-300c-test.png",
+    "specs": "2 items"
+  },
+  {
+    "id": "l5",
+    "name": "Godox AD600Pro-II",
+    "type": "light",
+    "image": "images/equipment/light/godox-ad600pro-II-test.png",
+    "specs": "2 items"
+  },
+  {
+    "id": "l6",
+    "name": "Godox SL60W",
+    "type": "light",
+    "image": "images/equipment/light/godox-sl60w-test.png",
+    "specs": "1 item"
+  },
+
+
   {
     "id": "b1",
     "name": "Sony A7 IV",
