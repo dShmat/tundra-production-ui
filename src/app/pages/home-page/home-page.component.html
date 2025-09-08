@@ -1,58 +1,154 @@
-<section id="home" class="relative h-[100vh] flex items-center justify-center text-center">
-  <img src="images/hero_initial-2.jpg" class="absolute inset-0 w-full h-full object-cover object-top"
+<section id="hero" class="h-[100vh]">
+  <div class="relative h-full flex items-end justify-center text-center">
+    <img src="images/studio-hero.png" class="absolute inset-0 w-full h-full object-cover"
        alt="Hero">
-  <div class="absolute inset-0 bg-black/30"></div>
-  <div class="relative z-10 text-white px-6">
-    <h1 class="text-4xl md:text-6xl font-bold leading-tight">Most friendly studio</h1>
-    <p class="mt-3 text-lg opacity-90">Light‑filled spaces & professional equipment for your best shots.</p>
-    <a (click)="openBooking()" class="mt-6 btn btn--primary inline-block">Book now</a>
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative text-white p-6">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight">Most friendly studio</h1>
+      <p class="mt-3 text-lg opacity-90">Light‑filled spaces & professional equipment for your best shots.</p>
+      <a (click)="openBooking()" class="mt-6 btn btn--primary inline-block">Book now</a>
+    </div>
   </div>
-  </section>
+</section>
+
+<section id="keyFeatures">
+  <div class="w-full h-full flex items-center justify-center p-8">
+    <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-2">
+      @for (feature of keyFeatures; track feature.id) {
+        <div class="flex flex-col gap-2 items-center cursor-pointer max-w-40">
+          <img [src]="feature.image" [alt]="feature.name">
+          <div class="flex flex-col gap-1 items-center">
+            <h5 class="text-md font-bold leading-tight text-center">{{ feature.name }}</h5>
+            <p class="text-sm text-center">{{ feature.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
 
 <section id="spaces" class="py-8 px-4 md:px-8">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Spaces</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div *ngFor="let s of spaces" class="group glass rounded-2xl overflow-hidden reveal">
-        <img [src]="s.image" [alt]="s.name"
-             class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105">
-        <div
-          class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-20 transition-20 duration-300 ease-in-out lg:h-12 lg:group-hover:h-20">
-          <h3 class="text-white font-semibold">{{ s.name }}</h3>
-          <p
-            class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
-            {{ s.description }}
-          </p>
+    <div class="flex flex-col items-center justify-center mb-2">
+      <h2 class="text-2xl md:text-6xl font-semibold mb-2">SPACES</h2>
+      <p>All spaces for you</p>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+      @for (space of spaces; track space.id) {
+        <div class="group glass overflow-hidden">
+          <img [src]="space.image" [alt]="space.name"
+               class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105">
+          <div
+            class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-20 transition-20 duration-300 ease-in-out lg:h-12 lg:group-hover:h-20">
+            <h3 class="text-white font-semibold">{{ space.name }}</h3>
+            <p
+              class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
+              {{ space.description }}
+            </p>
+          </div>
         </div>
-      </div>
+      }
+    </div>
+    <div class="flex items-center justify-center mb-2">
+      <img class="w-full md:w-[50%]" src="images/spaces/studio-plan.jpg" alt="studio plan">
     </div>
   </div>
-  </section>
+</section>
 
-<section id="equipment" class="py-8 px-4 md:px-8">
+
+<section id="equipment" class="h-[100vh]">
+  <div class="relative h-full flex items-center justify-center text-center">
+    <img src="images/equipment/equipment-overview.png" class="absolute inset-0 w-full h-full object-cover"
+         alt="equipment overview">
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative text-white p-6">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight">EQUIPMENT</h1>
+      <p class="mt-3 text-lg opacity-90">Part of equipment is included always, another part will be available with 5+ hours booking</p>
+      <a (click)="goToEquipment()" class="mt-6 btn btn--primary inline-block">More</a>
+    </div>
+  </div>
+</section>
+
+<section id="price" class="py-8 px-4 md:px-8">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Equipment</h2>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div *ngFor="let e of equipment" class="group glass rounded-2xl overflow-hidden reveal"
-           (click)="goToEquipment(e.type)">
-        <img [src]="e.image" [alt]="e.name"
-             class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105">
-        <div
-          class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-20 transition-20 duration-300 ease-in-out lg:h-12 lg:group-hover:h-20">
-          <h3 class="text-white font-semibold">{{ e.name }}</h3>
-          <p
-            class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
-            {{ e.description }}
-          </p>
-        </div>
+    <div class="flex flex-col items-center justify-center mb-2">
+      <h2 class="text-2xl md:text-xl font-light">STUDIO RENTAL</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold mb-2">PRICE LIST</h2>
+      <h2 class="text-2xl md:text-xl font-light">*PRICE INCLUDES FULL SPACE AND PROPS</h2>
+      <h2 class="text-2xl md:text-xl font-light">*2 LIGHTS INCLUDED UP TO 4 HOURS</h2>
+      <h2 class="text-2xl md:text-xl font-light mb-2">5+ HOURS - FULL ACCESS</h2>
+    </div>
+    <div class="flex flex-col items-center mt-2">
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">1 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">370 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">2 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">600 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">3 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">810 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%]">
+        <h2 class="text-xl md:text-2xl font-light">4 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">1080 AED</h2>
+      </div>
+      <hr class="w-[30%] border-t border-black my-2">
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">5 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">1350 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">6 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">1620 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">7 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">1890 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">8 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">2160 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">9 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">2250 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-4">
+        <h2 class="text-xl md:text-2xl font-light">10 HOUR</h2>
+        <h2 class="text-xl md:text-2xl font-light">2500 AED</h2>
+      </div>
+      <div class="flex items-center justify-center w-[30%] mb-3">
+        <h2 class="text-xl md:text-2xl font-light">ADDITIONAL HOURLY RATE</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-2">
+        <h2 class="text-xl md:text-2xl font-light">10AM - 8PM</h2>
+        <h2 class="text-xl md:text-2xl font-light">270 AED</h2>
+      </div>
+      <div class="flex items-center justify-between w-[30%] mb-4">
+        <h2 class="text-xl md:text-2xl font-light">AFTER HOURS</h2>
+        <h2 class="text-xl md:text-2xl font-light">370 AED</h2>
       </div>
     </div>
   </div>
-  </section>
+</section>
+
+<section id="instagram" class="h-[100vh] bg-black">
+  <div class="h-[20%] flex flex-col items-center justify-center mb-2">
+    <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white">OUR INSTAGRAM</h1>
+  </div>
+  <div class="relative h-[80%] flex items-center justify-center text-center">
+    <img src="images/equipment/equipment-overview.png" class="absolute inset-0 w-full h-full object-cover"
+         alt="equipment overview">
+    <div class="absolute inset-0 bg-black/30"></div>
+  </div>
+</section>
 
 <section id="contact" class="py-8 px-4 md:px-8">
   <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
-    <div class="md:col-span-2 reveal">
+    <div class="md:col-span-2">
       <h2 class="text-2xl md:text-3xl font-semibold">Contacts</h2>
       <ul class="mt-6 space-y-4 text-slate-800">
         <li class="flex items-center gap-3">
@@ -87,7 +183,7 @@
       </ul>
     </div>
 
-    <div class="reveal flex flex-col justify-center align-center">
+    <div class="flex flex-col justify-center align-center">
       <div class="flex mt-auto gap-4 text-slate-600 justify-center">
         <a href="//instagram.com" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
           <img ngSrc="icons/instagram.svg" alt="logo" height="25" width="25"/>

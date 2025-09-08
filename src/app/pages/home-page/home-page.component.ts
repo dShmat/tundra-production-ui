@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, inject} from '@angular/core';
-import {NgForOf, NgOptimizedImage, NgSwitch} from '@angular/common';
+import {NgOptimizedImage} from '@angular/common';
 import {Card} from '../../models/models';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
@@ -8,7 +8,6 @@ import {BookingDialogComponent} from '../../components/booking-dialog/booking-di
 @Component({
   selector: 'pt-home-page',
   imports: [
-    NgForOf,
     NgOptimizedImage
   ],
   templateUrl: './home-page.component.html'
@@ -18,10 +17,18 @@ export class HomePageComponent implements AfterViewInit {
   router = inject(Router);
   dialog = inject(MatDialog);
 
+  keyFeatures: Card[] = [
+    { id: 1, image: 'icons/map-icon.png', name: 'Abu Dhabi Al Zeina', description: 'Convenient location.' },
+    { id: 2, image: 'icons/floorplan-icon.png', name: 'All studio included', description: 'Starting from 1 hour.' },
+    { id: 3, image: 'icons/camera-icon.png', name: 'Professional equipment', description: 'Plenty or free with your rental' },
+    { id: 4, image: 'icons/cyclorama-icon.png', name: 'Cyclorama', description: '6X5 meters cyclorama' },
+    { id: 5, image: 'icons/sun-icon.png', name: 'Daylight Studio', description: 'Natural light' },
+  ]
+
   spaces: Card[] = [
-    { image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
-    { image: 'images/spaces/stylised.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
-    { image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
+    { id: 1, image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
+    { id: 2, image: 'images/spaces/stylised.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
+    { id: 3, image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
   ];
 
   equipment: Card[] = [

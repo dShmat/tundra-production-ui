@@ -3,4 +3,4 @@ export type EquipmentItem = {id: string; name: string; type?: 'light'|'cameras'|
 export type SiteConfig = { siteName: string; logo: string; calendlyUrl: string; whatsappNumber: string; };
 export type Contacts = { phone: string; email: string; address: string; socials: { name: string; icon: string; url: string; }[]; };
 
-export type Card = { image: string; name: string; description: string; type?: 'light'|'cameras'|'other' };
+export type Card = { id?: number, image: string; name: string; description: string; type?: 'light'|'cameras'|'other' };
