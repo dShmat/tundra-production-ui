@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
-import {Card} from '../../models/models';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {BookingDialogComponent} from '../../components/booking-dialog/booking-dialog.component';
+import {additionalRates, contacts, keyFeatures, priceNotes, spaces, studioRates} from '../../data/website-content.data';
 
 @Component({
   selector: 'pt-home-page',
@@ -12,62 +12,24 @@ import {BookingDialogComponent} from '../../components/booking-dialog/booking-di
   ],
   templateUrl: './home-page.component.html'
 })
-export class HomePageComponent implements AfterViewInit {
+export class HomePageComponent {
 
   router = inject(Router);
   dialog = inject(MatDialog);
 
-  keyFeatures: Card[] = [
-    { id: 1, image: 'icons/map-icon.png', name: 'Abu Dhabi Al Zeina', description: 'Convenient location.' },
-    { id: 2, image: 'icons/floorplan-icon.png', name: 'All studio included', description: 'Starting from 1 hour.' },
-    { id: 3, image: 'icons/camera-icon.png', name: 'Professional equipment', description: 'Plenty or free with your rental' },
-    { id: 4, image: 'icons/cyclorama-icon.png', name: 'Cyclorama', description: '6X5 meters cyclorama' },
-    { id: 5, image: 'icons/sun-icon.png', name: 'Daylight Studio', description: 'Natural light' },
-  ]
+  protected readonly priceNotes = priceNotes;
+  protected readonly studioRates = studioRates;
+  protected readonly additionalRates = additionalRates;
 
-  spaces: Card[] = [
-    { id: 1, image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
-    { id: 2, image: 'images/spaces/stylised.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
-    { id: 3, image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
-  ];
-
-  equipment: Card[] = [
-    { image: 'images/equipment/light/amaran-300c-test.png', name: 'Light', description: 'Video & Flash light.', type: 'light' },
-    { image: 'images/equipment/cameras_init.png', name: 'Cameras', description: 'Full‑frame bodies & lenses.', type: 'cameras' },
-    { image: 'images/equipment/more_init.png', name: 'Other', description: 'Grip, stands, backdrops & more.' }
-  ];
-
-  contact = {
-    phoneDisplay: '+971 (58) 555 55 55',
-    phoneLink: '+971585555555',
-    email: 'tundra.production@gmail.com',
-    address: 'Beach - Shop B9, Al Faridah Building, Al Raha Blvd, Al Zeina, Abu Dhabi',
-    mapUrl: 'https://maps.app.goo.gl/qvU93LNRbUHNuvVi8',
-    socials: [
-      { label: 'Instagram', href: 'https://instagram.com/' },
-      { label: 'Facebook',  href: 'https://facebook.com/' },
-      { label: 'TikTok',    href: 'https://www.tiktok.com/' },
-      { label: 'YouTube',   href: 'https://youtube.com/' }
-    ]
-  };
-
-  goToEquipment(type?: 'light'|'cameras'|'other') {
-    this.router.navigate(['/equipment'], { queryParams: { type } });
-  }
-
-  ngAfterViewInit(): void {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  goToEquipment() {
+    this.router.navigate(['/equipment']);
   }
 
   openBooking() {
     this.dialog.open(BookingDialogComponent, { width: '520px', panelClass: 'glass' });
   }
+
+  protected readonly keyFeatures = keyFeatures;
+  protected readonly spaces = spaces;
+  protected readonly contacts = contacts;
 }

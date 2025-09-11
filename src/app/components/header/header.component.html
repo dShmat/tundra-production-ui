@@ -1,18 +1,18 @@
 <header class="fixed top-0 left-0 right-0 z-50">
-  <div class="glass px-4 md:px-8 py-3" [class.glass]="isScrolled() || !isHome()" [class.blured]="!isScrolled() && isHome()">
+  <div class="glass px-4 md:px-8 py-3" [class.glass]="isScrolled()" [class.blured]="isScrolled()">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
       <a class="flex items-center gap-3" routerLink="/">
-        @if (isScrolled() || !isHome()) {
+        @if (isHeroEndScrolled() || !isHome()) {
           <img src="icons/tundra-logo-black.svg" class="h-4 rounded-md" alt="logo">
         } @else {
           <img src="icons/tundra-logo-white.svg" class="h-4 rounded-md" alt="logo">
         }
       </a>
-      <nav class="hidden md:flex items-center gap-4 text-sm" [class.text-black]="isScrolled() || !isHome()"
-           [class.text-white]="!isScrolled() && isHome()">
+      <nav class="hidden md:flex items-center gap-4 text-sm" [class.text-black]="isHeroEndScrolled() || !isHome()"
+           [class.text-white]="!isHeroEndScrolled() && isHome()">
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('spaces')">Spaces</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer"
-           (click)="scrollTo('equipment')">Equipment</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('equipment')">Equipment</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('price')">Price List</a>
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('contact')">Contact</a>
         <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk</a>
       </nav>
@@ -20,8 +20,8 @@
         <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk</a>
         <button class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())">
                 <span class="text-white"
-                      [class.text-black]="isScrolled() || !isHome()"
-                      [class.text-white]="!isScrolled() && isHome()">
+                      [class.text-black]="isHeroEndScrolled() || !isHome()"
+                      [class.text-white]="!isHeroEndScrolled() && isHome()">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
                          stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -40,6 +40,8 @@
            (click)="scrollTo('spaces'); mobileOpen.set(false)">Spaces</a>
         <a class="px-3 py-2 rounded hover:bg-white/30"
            (click)="scrollTo('equipment'); mobileOpen.set(false)">Equipment</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30"
+           (click)="scrollTo('price'); mobileOpen.set(false)">Price List</a>
         <a class="px-3 py-2 rounded hover:bg-white/30"
            (click)="scrollTo('contact'); mobileOpen.set(false)">Contact</a>
       </nav>

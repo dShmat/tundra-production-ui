@@ -1,44 +1,27 @@
-import {AfterViewInit, Component, computed, inject, signal} from '@angular/core';
-import {FileReaderService} from '../../services/file-reader.service';
-import {ActivatedRoute} from '@angular/router';
+import {Component, computed, signal} from '@angular/core';
 import {AsyncPipe} from '@angular/common';
 import {isDefined} from '../../utils/object-utils';
+import {CommonData, EquipmentType} from '../../models/models';
+import {equipment} from '../../data/website-content.data';
 
 @Component({
   selector: 'ts-equipment-page',
   templateUrl: './equipment-page.component.html',
-  imports: [
-    AsyncPipe
-  ],
   styleUrl: './equipment-page.component.scss'
 })
-export class EquipmentPageComponent implements AfterViewInit {
+export class EquipmentPageComponent {
+  private readonly allEquipments: CommonData[] = equipment;
+  protected readonly isDefined = isDefined;
+  typeSig = signal<EquipmentType | undefined>(undefined);
+  equipment$ = computed(() => this.getEquipmentByType(isDefined(this.typeSig()) ? this.typeSig() : undefined));
 
-  private route = inject(ActivatedRoute);
-  private content = inject(FileReaderService);
-  typeSig = signal<'light' | 'cameras' | 'other' | undefined>(undefined);
-  equipment$ = computed(() => this.content.equipmentByType$(isDefined(this.typeSig()) ? this.typeSig() : undefined));
-
-  constructor() {
-    const t = (this.route.snapshot.queryParamMap.get('type') ?? undefined) as any;
-    this.typeSig.set(t === 'light' || t === 'cameras' || t === 'other' ? t : undefined);
-  }
-
-  setType(t?: 'light' | 'cameras' | 'other') {
+  setType(t?: EquipmentType | undefined) {
     this.typeSig.set(t);
   }
 
-  ngAfterViewInit(): void {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in-view');
-          obs.unobserve(e.target);
-        }
-      });
-    }, {threshold: 0.15});
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  getEquipmentByType(type: EquipmentType | undefined): CommonData[] {
+    return isDefined(type) ? this.allEquipments.filter(i => i.type === type) : this.allEquipments;
   }
 
-  protected readonly isDefined = isDefined;
+  protected readonly EquipmentType = EquipmentType;
 }

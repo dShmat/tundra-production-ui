@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 :root {
-  --bg-0:#ffffff; --bg-1:#f8f5ff;
-  --ink-0:#0b0b10; --ink-1:#4a455e;
-  --primary-0:#6a5cf6; --primary-1:#a391ff;
-  --glass:rgba(255,255,255,.24);
-  --glass-border:rgba(255,255,255,.35);
-  --glass-shadow:0 10px 30px rgba(110,74,255,.15);
+  --bg-0: #ffffff; --bg-1:#f8f5ff;
+  --ink-0: #0b0b10; --ink-1:#4a455e;
+  --primary-0: #6a5cf6; --primary-1:#a391ff;
+  --glass: rgba(255,255,255,.24);
+  --glass-border: rgba(255,255,255,.35);
+  --glass-shadow: 0 10px 30px rgba(110,74,255,.15);
   --glass-hoover: rgba(184, 184, 184, 0.2);
 }
 
@@ -42,17 +42,19 @@ body::before {
 
 /* Buttons */
 .btn {
-  display:inline-flex;
-  align-items:center;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap:.5rem;
-  padding:.75rem 1.1rem;
-  border-radius:14px;
-  color:#fff;
-  transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  gap: .5rem;
+  padding: .75rem 2rem;
+  border-radius: .25rem;
+  color: #fff;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  font-size: 1rem;
+  line-height: 1.75rem;
 
   &--primary {
-    background:linear-gradient(135deg, var(--primary-0), var(--primary-1));
+    background: linear-gradient(135deg, var(--primary-0), var(--primary-1));
   }
 
   &--whatsap {
@@ -62,19 +64,18 @@ body::before {
 
   &--soft {
     background: var(--glass);
-    color:black;
-    border-radius:14px;
-    padding:.6rem .9rem;
+    color: black;
+    padding: .6rem .9rem;
 
     &.active {
-      background:linear-gradient(135deg, var(--primary-0), var(--primary-1));
-      color:white;
+      background: linear-gradient(135deg, var(--primary-0), var(--primary-1));
+      color: white;
     }
   }
 
   &:hover {
-    transform:translateY(-2px);
-    filter:saturate(3);
+    transform: translateY(-2px);
+    filter: saturate(3);
   }
 
 }

@@ -2,29 +2,46 @@
   <div class="p-3 mt-4">
     <div class="flex flex-wrap gap-2 text-sm">
       <button class="btn btn--soft cursor-pointer" [class.active]="!isDefined(typeSig())" (click)="setType(undefined)">All</button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === 'light'" (click)="setType('light')">Light</button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === 'cameras'" (click)="setType('cameras')">Cameras</button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === 'other'" (click)="setType('other')">Other</button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.VIDEO_LIGHT"
+              (click)="setType(EquipmentType.VIDEO_LIGHT)">Video Light
+      </button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.FLASH_LIGHT"
+              (click)="setType(EquipmentType.FLASH_LIGHT)">Flash Light
+      </button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.MODIFIERS"
+              (click)="setType(EquipmentType.MODIFIERS)">Modifers
+      </button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.SOUND"
+              (click)="setType(EquipmentType.SOUND)">Sound
+      </button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.STANDS"
+              (click)="setType(EquipmentType.STANDS)">Stands
+      </button>
+      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.OTHER"
+              (click)="setType(EquipmentType.OTHER)">Other
+      </button>
     </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-    @if (equipment$() | async; as list) {
+    @if (equipment$(); as list) {
       @for (item of list; track item.id) {
         <div class="group glass rounded-2xl overflow-hidden">
-          <img [src]="item.image" [alt]="item.name"
+          <img [src]="item.image || 'images/image.png'" [alt]="item.name"
                class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105">
           <div
             class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-20 transition-20 duration-300 ease-in-out lg:h-12 lg:group-hover:h-20">
             <h3 class="text-white font-semibold">{{ item.name }}</h3>
-            <p
-              class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
-              {{ item.description }}
-            </p>
-            @if (item.specs) {
+            @if (item.description) {
               <p
                 class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
-                {{ item.specs }}
+                {{ item.description }}
+              </p>
+            }
+            @if (item.number) {
+              <p
+                class="mt-1 text-sm text-white opacity-75 transition-opacity duration-300 ease-in-out lg:opacity-0 lg:group-hover:opacity-75">
+                {{ item.number }}
               </p>
             }
           </div>

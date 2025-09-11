@@ -5,18 +5,17 @@
   <form class="grid grid-cols-1 gap-3">
     <input class="glass rounded-md px-3 py-2 placeholder-gray-400 text-xs" placeholder="Full Name" [(ngModel)]="model.contactName" name="name">
     <input class="glass rounded-md px-3 py-2 placeholder-gray-400 text-xs" placeholder="Phone Number" [(ngModel)]="model.phone" name="phone">
-    <input class="glass rounded-md px-3 py-2 placeholder-gray-400 text-xs" placeholder="Email Address" [(ngModel)]="model.phone" name="email">
+    <input class="glass rounded-md px-3 py-2 placeholder-gray-400 text-xs" placeholder="Email Address" [(ngModel)]="model.email" name="email">
     <textarea class="glass rounded-md px-3 py-2 placeholder-gray-400 text-xs" placeholder="Enter your message" [(ngModel)]="model.message" name="message"></textarea>
   </form>
 
-  @if(site$ | async; as site) {
-    <div class="flex flex-wrap gap-3 mt-4">
-      <a class="btn btn--primary"
-         [href]="waLink(site.whatsappNumber)" target="_blank" rel="noopener">
-        WhatsApp message
-      </a>
-      <button class="btn-soft glass ml-auto" (click)="close()">Close</button>
-    </div>
-  }
+  <div class="flex flex-wrap gap-3 mt-4">
+    <a class="btn btn--primary"
+       [href]="waLink(contacts.whatsapp)" target="_blank" rel="noopener">
+      WhatsApp message
+    </a>
+    <button class="btn-soft glass ml-auto" (click)="close()">Close</button>
+  </div>
+
 
 </div>

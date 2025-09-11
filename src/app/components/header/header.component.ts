@@ -17,15 +17,17 @@ import {ContactDialogComponent} from '../contact-dialog/contact-dialog.component
 export class HeaderComponent {
   mobileOpen = signal(false);
   isScrolled = signal(false);
+  isHeroEndScrolled = signal(false);
 
   router = inject(Router);
   dialog = inject(MatDialog);
 
   @HostListener('window:scroll')
   onScroll() {
-    const viewportH = window.visualViewport?.height ?? window.innerHeight; // handles mobile chrome better
-    const triggerPx = (viewportH * 97) / 100;              // convert vh → px
-    this.isScrolled.set(window.scrollY > triggerPx);
+    const viewportH = window.visualViewport?.height ?? window.innerHeight;
+    const triggerPx = (viewportH * 95) / 100;
+    this.isHeroEndScrolled.set(window.scrollY > triggerPx);
+    this.isScrolled.set(window.scrollY > 0);
   }
 
   private isHomePath(url: string): boolean {

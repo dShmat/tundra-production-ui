@@ -1,20 +1,18 @@
 import {Component, inject} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {FileReaderService} from '../../services/file-reader.service';
 import {FormsModule} from '@angular/forms';
-import {AsyncPipe} from '@angular/common';
+import {contacts} from '../../data/website-content.data';
 
 @Component({
   selector: 'app-contact-dialog',
   imports: [
-    FormsModule,
-    AsyncPipe
+    FormsModule
   ],
   templateUrl: './contact-dialog.component.html'
 })
 export class ContactDialogComponent {
   private dialogRef = inject(MatDialogRef<ContactDialogComponent>);
-   site$ = inject(FileReaderService).site$;
+  protected contacts = contacts;
    model = {contactName: '', phone: '', email: '', message: ''};
 
    close() {
