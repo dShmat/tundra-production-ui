@@ -1,11 +1,11 @@
 import {CommonData, EquipmentType, PriceRate} from '../models/models';
 
 export const keyFeatures: CommonData[] = [
-  { id: 1, image: 'icons/map-icon.png', name: 'Abu Dhabi Al Zeina', description: 'Convenient location.' },
-  { id: 2, image: 'icons/floorplan-icon.png', name: 'All studio included', description: 'Starting from 1 hour.' },
-  { id: 3, image: 'icons/camera-icon.png', name: 'Professional equipment', description: 'Plenty or free with your rental' },
-  { id: 4, image: 'icons/cyclorama-icon.png', name: 'Cyclorama', description: '6X5 meters cyclorama' },
-  { id: 5, image: 'icons/sun-icon.png', name: 'Daylight Studio', description: 'Natural light' },
+  { id: 1, image: 'icons/map-gradient-icon.png', name: 'Abu Dhabi Al Zeina', description: 'Convenient location.' },
+  { id: 2, image: 'icons/infinity-gradient-icon.png', name: 'All studio included', description: 'Starting from 1 hour.' },
+  { id: 3, image: 'icons/equipment-gradient-icon.png', name: 'Professional equipment', description: 'Plenty or free with your rental' },
+  { id: 4, image: 'icons/cyclorama-gradient-icon.png', name: 'Cyclorama', description: '6X5 meters cyclorama' },
+  { id: 5, image: 'icons/daylight-gradient-icon.png', name: 'Daylight Studio', description: 'Natural light' },
 ]
 
 export const spaces: CommonData[] = [
@@ -39,16 +39,16 @@ export const additionalRates: PriceRate[] = [
 ];
 
 export const contacts = {
-  phoneDisplay: '+971 (58) 555 55 55',
-  phoneLink: '+971585555555',
+  phoneDisplay: '+971 (50) 746 16 63',
+  phoneLink: '+971507461663',
   email: 'info@tundrastd.com',
   address: 'Beach - Shop B9, Al Faridah Building, Al Raha Blvd, Al Zeina, Abu Dhabi',
   mapUrl: 'https://maps.app.goo.gl/qvU93LNRbUHNuvVi8',
   instagram: 'https://www.instagram.com/tundra.studio.ae/',
   youtube: '',
   pinterest: '',
-  whatsapp: '+971585555555',
-  telegram: '+971585555555',
+  whatsapp: '+971507461663',
+  telegram: '+971507461663',
 };
 
 
