@@ -4,13 +4,13 @@ export const keyFeatures: CommonData[] = [
   { id: 1, image: 'icons/map-gradient-icon.png', name: 'Abu Dhabi Al Zeina', description: 'Convenient location.' },
   { id: 2, image: 'icons/infinity-gradient-icon.png', name: 'All studio included', description: 'Starting from 1 hour.' },
   { id: 3, image: 'icons/equipment-gradient-icon.png', name: 'Professional equipment', description: 'Plenty or free with your rental' },
-  { id: 4, image: 'icons/cyclorama-gradient-icon.png', name: 'Cyclorama', description: '6X5 meters cyclorama' },
+  { id: 4, image: 'icons/cyclorama-gradient-icon.png', name: '4x5m Cyclorama', description: '4x5m meters cyclorama' },
   { id: 5, image: 'icons/daylight-gradient-icon.png', name: 'Daylight Studio', description: 'Natural light' },
 ]
 
 export const spaces: CommonData[] = [
-  { id: 1, image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: 'Seamless white cyc with overhead grid.' },
-  { id: 2, image: 'images/spaces/stylised.png', name: 'Stylised location', description: 'Designed sets with changeable props.' },
+  { id: 1, image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: '4×5 m with professional lighting, perfect for fashion, ads, and creative shoots.' },
+  { id: 2, image: 'images/spaces/stylised.png', name: 'Stylised furniture', description: 'A curated set of furniture and decor, adaptable for your vision.' },
   { id: 3, image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
 ];
 

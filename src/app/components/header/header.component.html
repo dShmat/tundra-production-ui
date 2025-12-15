@@ -12,12 +12,16 @@
            [class.text-white]="!isHeroEndScrolled() && isHome()">
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('spaces')">Spaces</a>
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('equipment')">Equipment</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('price')">Price List</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('price')">Price</a>
         <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('contact')">Contact</a>
-        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk</a>
+        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk
+          <img src="icons/whatsapp-white-icon.svg" alt="whatsapp-green">
+        </a>
       </nav>
       <div class="md:hidden flex items-center">
-        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk</a>
+        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk
+          <img src="icons/whatsapp-white-icon.svg" alt="whatsapp-green">
+        </a>
         <button class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())">
                 <span class="text-white"
                       [class.text-black]="isHeroEndScrolled() || !isHome()"
@@ -41,7 +45,7 @@
         <a class="px-3 py-2 rounded hover:bg-white/30"
            (click)="scrollTo('equipment'); mobileOpen.set(false)">Equipment</a>
         <a class="px-3 py-2 rounded hover:bg-white/30"
-           (click)="scrollTo('price'); mobileOpen.set(false)">Price List</a>
+           (click)="scrollTo('price'); mobileOpen.set(false)">Price</a>
         <a class="px-3 py-2 rounded hover:bg-white/30"
            (click)="scrollTo('contact'); mobileOpen.set(false)">Contact</a>
       </nav>

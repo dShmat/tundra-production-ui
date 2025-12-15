@@ -14,7 +14,7 @@ export class BookingDialogComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     if (typeof Calendly !== 'undefined') {
       Calendly.initInlineWidget({
-        url: 'https://calendly.com/d-shmat-contact/studio-rent',
+        url: 'https://calendly.com/tundra/studio-rental',
         parentElement: document.getElementById('calendly-embed'),
       });
     } else {

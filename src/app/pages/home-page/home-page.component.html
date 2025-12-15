@@ -34,7 +34,6 @@
                class="size-16 object-contain"/>
           <div class="flex flex-col gap-1">
             <h3 class="text-sm font-semibold leading-tight">{{ feature.name }}</h3>
-            <p class="text-xs text-slate-600">{{ feature.description }}</p>
           </div>
         </li>
       }
@@ -46,7 +45,27 @@
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col items-center text-center mb-6">
       <h2 id="spaces-title" class="text-3xl md:text-6xl font-semibold">SPACES</h2>
-      <p class="text-slate-600 mt-2">All spaces for you</p>
+      <div class="mt-2 text-left">
+        <p class="text-slate-600"><b>Tundra Studio</b> is a spacious 100 m² room that easily transforms into different setups:</p>
+        <ul class="list-disc pl-8">
+          <li>
+            <p class="text-slate-600"><b>Cyclorama</b> — 4×5 m with professional lighting, perfect for fashion, ads, and creative shoots.</p>
+          </li>
+          <li>
+            <p class="text-slate-600"><b>Stylised furniture</b> — a curated set of furniture and decor, adaptable for your vision.</p>
+          </li>
+        </ul>
+        <p class="text-slate-600 mt-1">You also get access to private outdoor spaces:</p>
+        <ul class="list-disc pl-8">
+          <li>
+            <p class="text-slate-600"><b>Terrace</b> — a secluded area of the house for cozy shoots.</p>
+          </li>
+          <li>
+            <p class="text-slate-600"><b>Rooftop</b> — a rooftop with stunning city views and unforgettable sunsets.</p>
+          </li>
+        </ul>
+        <p class="text-slate-600">All in one place — to create diverse stories without changing locations.</p>
+      </div>
     </div>
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
@@ -57,7 +76,7 @@
                loading="lazy"
                decoding="async"
                class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105"/>
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-20 transition-[height,opacity] duration-300 ease-in-out lg:h-12 lg:group-hover:h-20">
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-22 transition-[height,opacity] duration-300 ease-in-out lg:h-12 lg:group-hover:h-22">
             <h3 class="text-white font-semibold truncate">{{ space.name }}</h3>
             <p class="mt-1 text-sm text-white/80 transition-opacity duration-300 ease-in-out line-clamp-2 lg:opacity-0 lg:group-hover:opacity-100">
               {{ space.description }}
@@ -86,13 +105,15 @@
        class="absolute inset-0 object-cover"
        loading="lazy"
        decoding="async"/>
-  <div class="absolute inset-0 bg-black/35"></div>
+  <div class="absolute inset-0 bg-black/45"></div>
 
   <div class="relative flex min-h-[100svh] items-center justify-center text-center p-6">
     <div class="text-white max-w-3xl">
       <h2 id="equipment-title" class="text-4xl md:text-6xl font-bold leading-tight">EQUIPMENT</h2>
       <p class="mt-3 text-lg opacity-90">
-        Part of equipment is included always, another part is available with 5+ hours booking.
+        We provide professional equipment to cover every stage of your shoot.
+        <br>
+        From powerful studio lights to versatile stands and modifiers — everything you need to bring your vision to life.
       </p>
       <button type="button" (click)="goToEquipment()" class="mt-3 btn btn--primary">
         More
@@ -136,22 +157,27 @@
   </div>
 </section>
 
-<section id="instagram" class="relative min-h-[100svh] bg-black" aria-labelledby="instagram-title">
-  <div class="relative h-[20svh] flex flex-col items-center justify-center">
-    <a [href]="contacts.instagram" target="_blank" class="opacity-100 hover:opacity-50 transition duration-300"><h2 id="instagram-title" class="text-4xl md:text-6xl font-bold leading-tight text-white">
-      OUR INSTAGRAM
-    </h2>
+<section id="instagram" aria-labelledby="instagram-title">
+  <div class="grid grid-cols-5 grid-rows-3 gap-2">
+    <img class="h-full w-full object-cover" src="images/instagram/1.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/2.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/3.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/4.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/5.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/6.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/7.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/8.png" alt="" />
+    <a [href]="contacts.instagram" target="_blank" class="btn btn--instagram">
+      <p class="hidden md:block text-center">VISIT OUR INSTAGRAM</p>
+      <img class="max-h-16 md:mt-3" src="icons/instagram-white-icon.png" alt="instagram">
     </a>
-  </div>
-  <div class="relative h-[80svh]">
-    <img ngSrc="images/equipment/equipment-overview.png"
-         alt=""
-         fill
-         class="absolute inset-0 object-cover opacity-70"
-         loading="lazy"
-         decoding="async"
-         aria-hidden="true"/>
-    <div class="absolute inset-0 bg-black/30"></div>
+    <img class="h-full w-full object-cover" src="images/instagram/10.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/11.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/12.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/13.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/14.png" alt="" />
+    <img class="h-full w-full object-cover" src="images/instagram/15.png" alt="" />
+    <!-- repeat -->
   </div>
 </section>
 
@@ -195,19 +221,13 @@
     <div class="flex flex-col justify-center align-center">
       <div class="flex mt-auto gap-4 text-slate-600 justify-center">
         <a [href]="contacts.instagram" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/instagram.svg" alt="logo" height="25" width="25"/>
+          <img ngSrc="icons/instagram.svg" alt="logo" height="35" width="35"/>
         </a>
-        <a href="//youtube.com" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/youtube.svg" alt="logo" height="25" width="25"/>
+        <a target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
+          <img ngSrc="icons/whatsapp.svg" alt="logo" height="35" width="35"/>
         </a>
-        <a href="//pinterest.com" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/pinterest.svg" alt="logo" height="25" width="25"/>
-        </a>
-        <a href="//www.whatsapp.com/" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/whatsapp.svg" alt="logo" height="25" width="25"/>
-        </a>
-        <a href="//web.telegram.org/" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/telegram.svg" alt="logo" height="25" width="25"/>
+        <a href="//t.me/+GXXYHUr21WxiOGQy" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
+          <img ngSrc="icons/telegram.svg" alt="logo" height="35" width="35"/>
         </a>
       </div>
       <button class="mt-4 md:mt-auto btn btn--primary" (click)="openBooking()">
