@@ -25,9 +25,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
       @if (equipment$(); as list) {
-        <ul class="list-disc">
+        <ul class="list-disc pl-7">
           @for (item of list; track item.id) {
-            <li class="text-bold black font-semibold mt-2">{{ item.name }} ({{ item.number }})</li>
+            <li class="black mt-2">{{ item.name }} - {{ item.number }} pcs</li>
           }
         </ul>
         }
