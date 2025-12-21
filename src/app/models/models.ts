@@ -2,7 +2,7 @@ export type EquipmentItem = { id: string; name: string; type?: 'light'|'cameras'
 
 export type SiteConfig = { siteName: string; logo: string; calendlyUrl: string; whatsappNumber: string; };
 
-export type CommonData = { id?: number, image: string; name: string; description: string; type?: EquipmentType, number?: number };
+export type CommonData = { id?: number, image?: string; name: string; description: string; type?: EquipmentType, number?: number };
 
 export type PriceRate = { label: string,  price: number };
 

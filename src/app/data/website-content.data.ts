@@ -11,7 +11,7 @@ export const keyFeatures: CommonData[] = [
 export const spaces: CommonData[] = [
   { id: 1, image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: '4×5 m with professional lighting, perfect for fashion, ads, and creative shoots.' },
   { id: 2, image: 'images/spaces/stylised.png', name: 'Stylised furniture', description: 'A curated set of furniture and decor, adaptable for your vision.' },
-  { id: 3, image: 'images/spaces/terrace_init.png', name: 'Terrace', description: 'Open‑air terrace with city light.' }
+  { id: 3, image: 'images/spaces/terrace.jpg', name: 'Terrace', description: 'Open‑air terrace with city light.' }
 ];
 
 export const priceNotes: string[] = [
@@ -59,7 +59,6 @@ export const equipment: CommonData[] = [
     name: "Amaran 60x",
     type: EquipmentType.VIDEO_LIGHT,
     description: "",
-    image: "images/equipment/light/amaran-60x-test.png",
     number: 1
   },
   {
@@ -67,7 +66,6 @@ export const equipment: CommonData[] = [
     name: "Amaran 100D",
     type: EquipmentType.VIDEO_LIGHT,
     description: "",
-    image: "images/equipment/light/amaran-100d-test.png",
     number: 1
   },
   {
@@ -75,7 +73,6 @@ export const equipment: CommonData[] = [
     name: "Amaran 150c",
     type: EquipmentType.VIDEO_LIGHT,
     description: "",
-    image: "images/equipment/light/amaran-150c-test.png",
     number: 1
   },
   {
@@ -83,7 +80,6 @@ export const equipment: CommonData[] = [
     name: "Amaran 300c",
     type: EquipmentType.VIDEO_LIGHT,
     description: "",
-    image: "images/equipment/light/amaran-300c-test.png",
     number: 2
   },
   {
@@ -91,7 +87,6 @@ export const equipment: CommonData[] = [
     name: "Godox SL60W",
     type: EquipmentType.VIDEO_LIGHT,
     description: "",
-    image: "images/equipment/light/godox-sl60w-test.png",
     number: 1
   },
 
@@ -101,7 +96,6 @@ export const equipment: CommonData[] = [
     name: "Godox AD600Pro-II",
     type: EquipmentType.FLASH_LIGHT,
     description: "",
-    image: "images/equipment/light/godox-ad600pro-II-test.png",
     number: 2
   },
   {

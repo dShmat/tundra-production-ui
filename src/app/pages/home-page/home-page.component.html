@@ -8,13 +8,10 @@
 
   <div class="relative flex min-h-[100svh] items-end justify-center text-center p-6">
     <div class="max-w-3xl text-white">
-      <h1 id="hero-title" class="text-4xl md:text-6xl font-bold leading-tight">
-        Most friendly studio
+      <h1 id="hero-title" class="text-4xl md:text-6xl font-semibold leading-tight">
+        Abu Dhabi’s Creative Photography Studio
       </h1>
-      <p class="mt-3 text-lg/7 opacity-90">
-        Light-filled spaces & professional equipment for your best shots.
-      </p>
-      <button type="button" (click)="openBooking()" class="mt-3 btn btn--primary">
+      <button type="button" (click)="openBooking()" class="mt-6 btn btn--primary">
         Book now
       </button>
     </div>
@@ -223,7 +220,7 @@
         <a [href]="contacts.instagram" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
           <img ngSrc="icons/instagram.svg" alt="logo" height="35" width="35"/>
         </a>
-        <a target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
+        <a [href]="'https://wa.me/' + contacts.whatsapp" target="_blank" rel="noopener" class="block transition-opacity text-inherit hover:opacity-60">
           <img ngSrc="icons/whatsapp.svg" alt="logo" height="35" width="35"/>
         </a>
         <a href="//t.me/+GXXYHUr21WxiOGQy" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
