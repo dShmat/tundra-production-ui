@@ -2,9 +2,9 @@ import {CommonData, EquipmentType, PriceRate} from '../models/models';
 
 export const keyFeatures: CommonData[] = [
   { id: 1, image: 'icons/map-gradient-icon.png', name: 'Abu Dhabi Al Zeina', description: 'Convenient location.' },
-  { id: 2, image: 'icons/infinity-gradient-icon.png', name: 'All studio included', description: 'Starting from 1 hour.' },
-  { id: 3, image: 'icons/equipment-gradient-icon.png', name: 'Professional equipment', description: 'Plenty or free with your rental' },
-  { id: 4, image: 'icons/cyclorama-gradient-icon.png', name: '4x5m Cyclorama', description: '4x5m meters cyclorama' },
+  { id: 2, image: 'icons/infinity-gradient-icon.png', name: 'Full studio included', description: 'Bookings start from one hour.' },
+  { id: 3, image: 'icons/equipment-gradient-icon.png', name: 'Professional equipment', description: 'Selected equipment is included with your rental.' },
+  { id: 4, image: 'icons/cyclorama-gradient-icon.png', name: '4×5 m Cyclorama', description: 'A professional 4×5 m cyclorama.' },
   { id: 5, image: 'icons/daylight-gradient-icon.png', name: 'Daylight Studio', description: 'Natural light' },
 ]
 
@@ -131,7 +131,7 @@ export const equipment: CommonData[] = [
     number: 1
   },
 
-  //Modifers
+  // Modifiers
   {
     id: 11,
     name: "Aputure Lantern 66cm",
@@ -142,7 +142,7 @@ export const equipment: CommonData[] = [
   },
   {
     id: 12,
-    name: "Softbox Apature light Dome SE 85cm",
+    name: "Aputure Light Dome SE 85 cm",
     type: EquipmentType.MODIFIERS,
     description: "",
     image: "",
@@ -157,7 +157,7 @@ export const equipment: CommonData[] = [
     number: 1
   },
   {
-    id: 13,
+    id: 14,
     name: "Aputure Lantern 90cm",
     type: EquipmentType.MODIFIERS,
     description: "",
@@ -165,23 +165,23 @@ export const equipment: CommonData[] = [
     number: 1
   },
   {
-    id: 14,
-    name: "Godox SB-GUSW 60x90cm",
+    id: 15,
+    name: "Godox SB-GUSW 60×90 cm",
     type: EquipmentType.MODIFIERS,
     description: "",
     image: "",
     number: 1
   },
   {
-    id: 15,
-    name: "Godox SB-FW 35x160cm",
+    id: 16,
+    name: "Godox SB-FW 35×160 cm",
     type: EquipmentType.MODIFIERS,
     description: "",
     image: "",
     number: 2
   },
   {
-    id: 16,
+    id: 17,
     name: "Light Reflector Diffuser",
     type: EquipmentType.MODIFIERS,
     description: "",
@@ -189,16 +189,16 @@ export const equipment: CommonData[] = [
     number: 1
   },
   {
-    id: 17,
-    name: "Apature spotlight",
+    id: 18,
+    name: "Aputure Spotlight",
     type: EquipmentType.MODIFIERS,
     description: "",
     image: "",
     number: 1
   },
   {
-    id: 18,
-    name: "Beuty dish",
+    id: 19,
+    name: "Beauty Dish",
     type: EquipmentType.MODIFIERS,
     description: "",
     image: "",
@@ -207,7 +207,7 @@ export const equipment: CommonData[] = [
 
   //Sound
   {
-    id: 19,
+    id: 20,
     name: "Zoom H6 Recorder",
     type: EquipmentType.SOUND,
     description: "",
@@ -217,7 +217,7 @@ export const equipment: CommonData[] = [
 
   //Stands
   {
-    id: 20,
+    id: 21,
     name: "C Stand",
     type: EquipmentType.STANDS,
     description: "",
@@ -225,8 +225,8 @@ export const equipment: CommonData[] = [
     number: 4
   },
   {
-    id: 21,
-    name: "Neewet Pro 9",
+    id: 22,
+    name: "Neewer Pro 9",
     type: EquipmentType.STANDS,
     description: "",
     image: "",
@@ -235,7 +235,7 @@ export const equipment: CommonData[] = [
 
   //Other
   {
-    id: 22,
+    id: 23,
     name: "Small Spring Clamps",
     type: EquipmentType.OTHER,
     description: "",
@@ -243,4 +243,3 @@ export const equipment: CommonData[] = [
     number: 4
   },
 ]
-

@@ -1,8 +1,8 @@
-import {Component, computed, signal} from '@angular/core';
-import {AsyncPipe} from '@angular/common';
+import {Component, computed, inject, signal} from '@angular/core';
 import {isDefined} from '../../utils/object-utils';
 import {CommonData, EquipmentType} from '../../models/models';
 import {equipment} from '../../data/website-content.data';
+import {LocaleService} from '../../i18n/locale.service';
 
 @Component({
   selector: 'ts-equipment-page',
@@ -10,6 +10,7 @@ import {equipment} from '../../data/website-content.data';
   styleUrl: './equipment-page.component.scss'
 })
 export class EquipmentPageComponent {
+  readonly i18n = inject(LocaleService);
   private readonly allEquipments: CommonData[] = equipment;
   protected readonly isDefined = isDefined;
   typeSig = signal<EquipmentType | undefined>(undefined);
@@ -24,4 +25,5 @@ export class EquipmentPageComponent {
   }
 
   protected readonly EquipmentType = EquipmentType;
+  protected readonly categories = Object.values(EquipmentType);
 }

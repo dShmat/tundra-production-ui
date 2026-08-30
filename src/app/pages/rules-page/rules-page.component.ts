@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {LocaleService} from '../../i18n/locale.service';
 
 @Component({
   selector: 'app-rules-page',
@@ -9,7 +10,5 @@ import {RouterLink} from '@angular/router';
   templateUrl: './rules-page.component.html'
 })
 export class RulesPageComponent {
-  scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: 'start'});
-  }
+  readonly i18n = inject(LocaleService);
 }

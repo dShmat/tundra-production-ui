@@ -1,9 +1,9 @@
 <footer class="mt-auto">
   <div class="glass rounded-none px-4 md:px-8 py-4 flex flex-col-reverse md:flex-row md:align-center md:justify-between">
-    <div class="max-w-7xl mx-auto text-sm">© 2025 Tundra Studio — All rights reserved.</div>
+    <div class="max-w-7xl mx-auto text-sm">© {{ year }} {{ i18n.copy().footer.rights }}</div>
     <div class="max-w-7xl mx-auto text-sm">
-      <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" routerLink="/rules">Rules</a>
-      <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" routerLink="/privacy">Privacy Policy</a>
+      <a class="px-3 py-2 rounded hover:bg-white/30" [routerLink]="i18n.pageUrl('rules')">{{ i18n.copy().footer.rules }}</a>
+      <a class="px-3 py-2 rounded hover:bg-white/30" [routerLink]="i18n.pageUrl('privacy')">{{ i18n.copy().footer.privacy }}</a>
     </div>
   </div>
 </footer>
