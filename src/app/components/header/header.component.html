@@ -14,26 +14,20 @@
         <a class="px-3 py-2 rounded hover:bg-white/30" [routerLink]="i18n.pageUrl('equipment')">{{ i18n.copy().nav.equipment }}</a>
         <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('price')">{{ i18n.copy().nav.price }}</a>
         <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('contact')">{{ i18n.copy().nav.contact }}</a>
-        <div class="flex items-center gap-1" role="navigation" [attr.aria-label]="i18n.copy().nav.languages">
-          @for (language of i18n.languages; track language.locale) {
-            <a class="rounded px-1.5 py-1 uppercase hover:bg-white/30"
-               [class.font-bold]="i18n.locale() === language.locale"
-               [attr.lang]="language.locale"
-               [href]="i18n.languageUrl(language.locale)">{{ language.locale }}</a>
-          }
-        </div>
+        <ts-language-switcher />
         <button type="button" (click)="openContactDialog()" class="btn btn--whatsap inline-flex">{{ i18n.copy().nav.talk }}
           <img src="icons/whatsapp-white-icon.svg" [alt]="i18n.copy().home.socialAlt.whatsapp">
         </button>
       </nav>
-      <div class="md:hidden flex items-center">
+      <div class="md:hidden flex items-center"
+           [class.text-black]="isHeroEndScrolled() || !isHome()"
+           [class.text-white]="!isHeroEndScrolled() && isHome()">
         <button type="button" (click)="openContactDialog()" class="btn btn--whatsap inline-flex">{{ i18n.copy().nav.talk }}
           <img src="icons/whatsapp-white-icon.svg" [alt]="i18n.copy().home.socialAlt.whatsapp">
         </button>
+        <ts-language-switcher />
         <button type="button" class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())" aria-label="Menu">
-                <span class="text-white"
-                      [class.text-black]="isHeroEndScrolled() || !isHome()"
-                      [class.text-white]="!isHeroEndScrolled() && isHome()">
+                <span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor"
                          stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -52,14 +46,6 @@
         <a class="px-3 py-2 rounded hover:bg-white/30" [routerLink]="i18n.pageUrl('equipment')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.equipment }}</a>
         <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('price')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.price }}</a>
         <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('contact')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.contact }}</a>
-        <div class="flex gap-2 px-3 py-2" [attr.aria-label]="i18n.copy().nav.languages">
-          @for (language of i18n.languages; track language.locale) {
-            <a class="rounded border border-black/10 px-3 py-1 uppercase"
-               [class.font-bold]="i18n.locale() === language.locale"
-               [attr.lang]="language.locale"
-               [href]="i18n.languageUrl(language.locale)">{{ language.label }}</a>
-          }
-        </div>
       </nav>
     </div>
   </div>

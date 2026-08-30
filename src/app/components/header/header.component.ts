@@ -6,13 +6,15 @@ import {NgClass} from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import {ContactDialogComponent} from '../contact-dialog/contact-dialog.component';
 import {LocaleService} from '../../i18n/locale.service';
+import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.component';
 
 @Component({
   selector: 'ts-header',
   templateUrl: './header.component.html',
   imports: [
     NgClass,
-    RouterLink
+    RouterLink,
+    LanguageSwitcherComponent
   ]
 })
 export class HeaderComponent {
