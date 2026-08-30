@@ -13,7 +13,7 @@ export interface ContentSection {
 export interface SiteCopy {
   languageName: string;
   nav: { spaces: string; equipment: string; price: string; contact: string; talk: string; languages: string };
-  actions: { book: string; more: string; backToTop: string };
+  actions: { book: string; bookStudio: string; more: string; backToTop: string };
   home: {
     heroTitle: string;
     heroDescription: string;
@@ -22,11 +22,15 @@ export interface SiteCopy {
     features: Array<{ image: string; name: string }>;
     spacesTitle: string;
     spacesIntro: string;
+    indoorSpaces: Array<{ name: string; description: string }>;
+    outdoorSpacesIntro: string;
+    outdoorSpaces: Array<{ name: string; description: string }>;
     spaces: Array<{ image: string; name: string; description: string }>;
     spacesOutro: string;
     studioPlanAlt: string;
     equipmentTitle: string;
     equipmentDescription: string;
+    equipmentDescriptionContinuation: string;
     equipmentAlt: string;
     priceTitle: string;
     priceNotes: string[];
@@ -75,39 +79,49 @@ export const SITE_COPY: Record<Locale, SiteCopy> = {
   en: {
     languageName: 'English',
     nav: {spaces: 'Spaces', equipment: 'Equipment', price: 'Prices', contact: 'Contact', talk: "Let's talk", languages: 'Choose language'},
-    actions: {book: 'Book now', more: 'View equipment', backToTop: 'Back to top'},
+    actions: {book: 'Book now', bookStudio: 'Book Studio Now', more: 'More', backToTop: 'Back to top'},
     home: {
-      heroTitle: 'Photo Studio Rental in Abu Dhabi',
-      heroDescription: 'A 100 m² daylight studio in Al Zeina with a 4×5 m cyclorama, styled interiors, outdoor spaces and professional lighting.',
+      heroTitle: 'Abu Dhabi’s Creative Photo Studio',
+      heroDescription: '',
       heroAlt: 'Daylight photo studio for rent in Al Zeina, Abu Dhabi',
       featuresTitle: 'Studio features',
       features: [
-        {image: commonFeatures[0], name: 'Al Zeina, Abu Dhabi'},
-        {image: commonFeatures[1], name: 'Full studio included'},
+        {image: commonFeatures[0], name: 'Abu Dhabi Al Zeina'},
+        {image: commonFeatures[1], name: 'All studio included'},
         {image: commonFeatures[2], name: 'Professional equipment'},
         {image: commonFeatures[3], name: '4×5 m cyclorama'},
-        {image: commonFeatures[4], name: 'Natural daylight'},
+        {image: commonFeatures[4], name: 'Daylight Studio'},
       ],
-      spacesTitle: 'Spaces',
-      spacesIntro: 'Tundra Studio is a flexible 100 m² photo studio in Al Zeina, Abu Dhabi. Create fashion, commercial, portrait and content shoots without changing locations.',
+      spacesTitle: 'SPACES',
+      spacesIntro: 'is a spacious 100 m² room that easily transforms into different setups:',
+      indoorSpaces: [
+        {name: 'Cyclorama', description: '4×5 m with professional lighting, perfect for fashion, ads, and creative shoots.'},
+        {name: 'Stylised furniture', description: 'a curated set of furniture and decor, adaptable for your vision.'},
+      ],
+      outdoorSpacesIntro: 'You also get access to private outdoor spaces:',
+      outdoorSpaces: [
+        {name: 'Terrace', description: 'a secluded area of the house for cozy shoots.'},
+        {name: 'Rooftop', description: 'a rooftop with stunning city views and unforgettable sunsets.'},
+      ],
       spaces: [
         {image: 'images/spaces/cyclorama.png', name: 'Cyclorama', description: 'A 4×5 m cyclorama with professional lighting for fashion, advertising and creative shoots.'},
-        {image: 'images/spaces/stylised.png', name: 'Styled interior', description: 'A curated collection of furniture and décor that can be adapted to your concept.'},
-        {image: 'images/spaces/terrace.jpg', name: 'Terrace and rooftop', description: 'Private outdoor areas with natural light, city views and sunset backdrops.'},
+        {image: 'images/spaces/stylised.png', name: 'Stylised furniture', description: 'A curated set of furniture and decor, adaptable for your vision.'},
+        {image: 'images/spaces/terrace.jpg', name: 'Terrace', description: 'Open-air terrace with city light.'},
       ],
-      spacesOutro: 'The studio, props and selected lights are included in your booking, with sessions available from one hour.',
+      spacesOutro: 'All in one place — to create diverse stories without changing locations.',
       studioPlanAlt: 'Floor plan of Tundra Studio in Abu Dhabi',
-      equipmentTitle: 'Professional studio equipment',
-      equipmentDescription: 'Lights, modifiers, stands and sound equipment are available to support every stage of your production.',
+      equipmentTitle: 'EQUIPMENT',
+      equipmentDescription: 'We provide professional equipment to cover every stage of your shoot.',
+      equipmentDescriptionContinuation: 'From powerful studio lights to versatile stands and modifiers — everything you need to bring your vision to life.',
       equipmentAlt: 'Professional lighting equipment inside Tundra Studio',
-      priceTitle: 'Studio rental prices',
-      priceNotes: ['Full studio and props included', 'Two lights included for bookings up to four hours', 'Full equipment access for bookings of five hours or more'],
-      additionalRate: 'Additional hourly rate',
-      hourLabels: ['1 hour', '2 hours', '3 hours', '4 hours', '5 hours', '6 hours', '7 hours', '8 hours', '9 hours', '10 hours'],
-      daytime: '10:00–20:00',
-      afterHours: 'After hours',
-      instagram: 'Visit our Instagram',
-      contactsTitle: 'Contact Tundra Studio',
+      priceTitle: 'PRICE LIST',
+      priceNotes: ['*PRICE INCLUDES FULL SPACE AND PROPS', '*2 LIGHTS INCLUDED UP TO 4 HOURS', '5+ HOURS — FULL ACCESS'],
+      additionalRate: 'ADDITIONAL HOURLY RATE',
+      hourLabels: ['1 HOUR', '2 HOURS', '3 HOURS', '4 HOURS', '5 HOURS', '6 HOURS', '7 HOURS', '8 HOURS', '9 HOURS', '10 HOURS'],
+      daytime: '10AM – 8PM',
+      afterHours: 'AFTER HOURS',
+      instagram: 'VISIT OUR INSTAGRAM',
+      contactsTitle: 'Contacts',
       socialAlt: {instagram: 'Tundra Studio on Instagram', whatsapp: 'Contact Tundra Studio on WhatsApp', telegram: 'Contact Tundra Studio on Telegram'},
     },
     equipment: {
@@ -175,7 +189,7 @@ export const SITE_COPY: Record<Locale, SiteCopy> = {
   ru: {
     languageName: 'Русский',
     nav: {spaces: 'Пространства', equipment: 'Оборудование', price: 'Цены', contact: 'Контакты', talk: 'Написать нам', languages: 'Выбрать язык'},
-    actions: {book: 'Забронировать', more: 'Смотреть оборудование', backToTop: 'Наверх'},
+    actions: {book: 'Забронировать', bookStudio: 'Забронировать студию', more: 'Подробнее', backToTop: 'Наверх'},
     home: {
       heroTitle: 'Аренда фотостудии в Абу-Даби',
       heroDescription: 'Светлая студия площадью 100 м² в Al Zeina: циклорама 4×5 м, стильные интерьеры, открытые площадки и профессиональный свет.',
@@ -189,16 +203,26 @@ export const SITE_COPY: Record<Locale, SiteCopy> = {
         {image: commonFeatures[4], name: 'Естественный свет'},
       ],
       spacesTitle: 'Пространства',
-      spacesIntro: 'Tundra Studio — универсальная фотостудия площадью 100 м² в районе Al Zeina, Абу-Даби. Здесь можно снимать моду, рекламу, портреты и контент, не меняя локацию.',
+      spacesIntro: '— просторный зал площадью 100 м², который легко трансформируется под разные задачи:',
+      indoorSpaces: [
+        {name: 'Циклорама', description: '4×5 м с профессиональным светом для модных, рекламных и творческих съёмок.'},
+        {name: 'Стильная мебель', description: 'подборка мебели и декора, которую можно адаптировать под вашу идею.'},
+      ],
+      outdoorSpacesIntro: 'Также доступны приватные открытые пространства:',
+      outdoorSpaces: [
+        {name: 'Терраса', description: 'уединённая часть дома для уютных съёмок.'},
+        {name: 'Крыша', description: 'площадка с видом на город и незабываемыми закатами.'},
+      ],
       spaces: [
         {image: 'images/spaces/cyclorama.png', name: 'Циклорама', description: 'Циклорама 4×5 м с профессиональным светом для модных, рекламных и творческих съёмок.'},
         {image: 'images/spaces/stylised.png', name: 'Стильный интерьер', description: 'Подборка мебели и декора, которую легко адаптировать под вашу идею.'},
         {image: 'images/spaces/terrace.jpg', name: 'Терраса и крыша', description: 'Приватные открытые зоны с естественным светом, видом на город и закат.'},
       ],
-      spacesOutro: 'Студия, реквизит и выбранные источники света входят в бронирование от одного часа.',
+      spacesOutro: 'Всё в одном месте — для разных историй без смены локации.',
       studioPlanAlt: 'План фотостудии Tundra Studio в Абу-Даби',
       equipmentTitle: 'Профессиональное оборудование',
-      equipmentDescription: 'Постоянный и импульсный свет, модификаторы, стойки и звук для всех этапов съёмки.',
+      equipmentDescription: 'Мы предоставляем профессиональное оборудование для каждого этапа съёмки.',
+      equipmentDescriptionContinuation: 'Мощный студийный свет, универсальные стойки и модификаторы — всё, чтобы воплотить вашу идею.',
       equipmentAlt: 'Профессиональное световое оборудование в Tundra Studio',
       priceTitle: 'Стоимость аренды',
       priceNotes: ['Вся студия и реквизит включены', 'Два источника света включены при аренде до четырёх часов', 'Полный доступ к оборудованию при аренде от пяти часов'],
@@ -256,7 +280,7 @@ export const SITE_COPY: Record<Locale, SiteCopy> = {
   ar: {
     languageName: 'العربية',
     nav: {spaces: 'المساحات', equipment: 'المعدات', price: 'الأسعار', contact: 'التواصل', talk: 'تواصل معنا', languages: 'اختر اللغة'},
-    actions: {book: 'احجز الآن', more: 'عرض المعدات', backToTop: 'العودة إلى الأعلى'},
+    actions: {book: 'احجز الآن', bookStudio: 'احجز الاستوديو الآن', more: 'المزيد', backToTop: 'العودة إلى الأعلى'},
     home: {
       heroTitle: 'استوديو تصوير للإيجار في أبوظبي',
       heroDescription: 'استوديو بإضاءة طبيعية بمساحة 100 م² في الزينة، مع سيكلوراما 4×5 م وديكورات أنيقة ومساحات خارجية وإضاءة احترافية.',
@@ -270,16 +294,26 @@ export const SITE_COPY: Record<Locale, SiteCopy> = {
         {image: commonFeatures[4], name: 'إضاءة طبيعية'},
       ],
       spacesTitle: 'المساحات',
-      spacesIntro: 'Tundra Studio استوديو تصوير مرن بمساحة 100 م² في الزينة، أبوظبي، مناسب لتصوير الأزياء والإعلانات والبورتريه والمحتوى من دون تغيير الموقع.',
+      spacesIntro: 'عبارة عن قاعة واسعة بمساحة 100 م² يمكن تحويلها بسهولة إلى إعدادات مختلفة:',
+      indoorSpaces: [
+        {name: 'السيكلوراما', description: 'بمساحة 4×5 م وإضاءة احترافية، مثالية للأزياء والإعلانات والتصوير الإبداعي.'},
+        {name: 'الأثاث المنسّق', description: 'مجموعة مختارة من الأثاث والديكور يمكن تكييفها مع رؤيتك.'},
+      ],
+      outdoorSpacesIntro: 'كما تتوفر مساحات خارجية خاصة:',
+      outdoorSpaces: [
+        {name: 'التراس', description: 'مساحة منعزلة من المنزل لجلسات تصوير مريحة.'},
+        {name: 'السطح', description: 'سطح بإطلالات رائعة على المدينة وغروب لا يُنسى.'},
+      ],
       spaces: [
         {image: 'images/spaces/cyclorama.png', name: 'السيكلوراما', description: 'سيكلوراما 4×5 م مع إضاءة احترافية لتصوير الأزياء والإعلانات والمشاريع الإبداعية.'},
         {image: 'images/spaces/stylised.png', name: 'ديكور أنيق', description: 'مجموعة مختارة من الأثاث والديكور يمكن تكييفها مع فكرتك.'},
         {image: 'images/spaces/terrace.jpg', name: 'التراس والسطح', description: 'مساحات خارجية خاصة بإضاءة طبيعية وإطلالات على المدينة وخلفيات الغروب.'},
       ],
-      spacesOutro: 'يشمل الحجز الاستوديو والإكسسوارات ومصادر إضاءة مختارة، ويمكن الحجز ابتداءً من ساعة واحدة.',
+      spacesOutro: 'كل ذلك في مكان واحد لصناعة قصص متنوعة من دون تغيير الموقع.',
       studioPlanAlt: 'مخطط Tundra Studio في أبوظبي',
       equipmentTitle: 'معدات استوديو احترافية',
-      equipmentDescription: 'إضاءة ومعدّلات وحوامل ومعدات صوت لدعم جميع مراحل الإنتاج.',
+      equipmentDescription: 'نوفر معدات احترافية تغطي كل مرحلة من مراحل جلسة التصوير.',
+      equipmentDescriptionContinuation: 'من إضاءة الاستوديو القوية إلى الحوامل ومعدّلات الإضاءة المتنوعة — كل ما تحتاجه لتحقيق رؤيتك.',
       equipmentAlt: 'معدات إضاءة احترافية داخل Tundra Studio',
       priceTitle: 'أسعار إيجار الاستوديو',
       priceNotes: ['الاستوديو بالكامل والإكسسوارات مشمولة', 'مصدران للإضاءة مشمولان للحجوزات حتى أربع ساعات', 'استخدام كامل للمعدات للحجوزات من خمس ساعات فأكثر'],
