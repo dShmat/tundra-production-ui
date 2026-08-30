@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {LocaleService} from '../../i18n/locale.service';
 
 @Component({
   selector: 'app-privacy-page',
@@ -6,7 +7,5 @@ import { Component } from '@angular/core';
   templateUrl: './privacy-page.component.html'
 })
 export class PrivacyPageComponent {
-  scrollTo(id: string) {
-      document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: 'start'});
-  }
+  readonly i18n = inject(LocaleService);
 }

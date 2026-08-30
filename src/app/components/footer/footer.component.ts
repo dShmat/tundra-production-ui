@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
+import {LocaleService} from '../../i18n/locale.service';
 
 @Component({
   selector: 'ts-footer',
@@ -9,5 +10,6 @@ import {RouterLink} from '@angular/router';
   ]
 })
 export class FooterComponent {
-
+  readonly i18n = inject(LocaleService);
+  readonly year = new Date().getFullYear();
 }

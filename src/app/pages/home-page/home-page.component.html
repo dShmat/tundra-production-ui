@@ -1,34 +1,38 @@
 <section id="hero" class="relative min-h-[100svh]" aria-labelledby="hero-title">
-  <img ngSrc="images/studio-hero.png"
-       alt="Light-filled photo studio interior"
-       fill
-       [priority]="true"
-       class="absolute inset-0 object-cover"/>
+  <picture class="absolute inset-0 block h-full w-full">
+    <source type="image/avif"
+            srcset="images/optimized/studio-hero-768.avif 768w, images/optimized/studio-hero-1280.avif 1280w, images/optimized/studio-hero-1920.avif 1920w"
+            sizes="100vw">
+    <source type="image/webp"
+            srcset="images/optimized/studio-hero-768.webp 768w, images/optimized/studio-hero-1280.webp 1280w, images/optimized/studio-hero-1920.webp 1920w"
+            sizes="100vw">
+    <img src="images/studio-hero.png"
+         [alt]="i18n.copy().home.heroAlt"
+         width="2362" height="1575"
+         fetchpriority="high"
+         class="h-full w-full object-cover">
+  </picture>
   <div class="absolute inset-0 bg-black/35"></div>
 
   <div class="relative flex min-h-[100svh] items-end justify-center text-center p-6">
     <div class="max-w-3xl text-white">
       <h1 id="hero-title" class="text-4xl font-semibold leading-tight">
-        Abu Dhabi’s Creative Photo Studio
+        {{ i18n.copy().home.heroTitle }}
       </h1>
       <button type="button" (click)="openBooking()" class="mt-6 btn btn--primary">
-        Book now
+        {{ i18n.copy().actions.book }}
       </button>
     </div>
   </div>
 </section>
 
-<section id="keyFeatures" class="pt-12 px-4 md:px-8" aria-labelledby="features-title">
+<section id="keyFeatures" class="pt-12 px-4 md:px-8" [attr.aria-labelledby]="'features-title'">
   <div class="max-w-7xl mx-auto">
-    <h2 id="features-title" class="sr-only">Key features</h2>
+    <h2 id="features-title" class="sr-only">{{ i18n.copy().home.featuresTitle }}</h2>
     <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 place-items-center">
-      @for (feature of keyFeatures; track feature.id) {
+      @for (feature of i18n.copy().home.features; track feature.name) {
         <li class="flex flex-col items-center gap-2 cursor-pointer max-w-44 text-center">
-          <img [src]="feature.image"
-               [alt]="feature.name"
-               loading="lazy"
-               decoding="async"
-               class="size-16 object-contain"/>
+          <img [src]="feature.image" [alt]="feature.name" width="64" height="64" loading="lazy" decoding="async" class="size-16 object-contain">
           <div class="flex flex-col gap-1">
             <h3 class="text-sm font-semibold leading-tight">{{ feature.name }}</h3>
           </div>
@@ -41,80 +45,74 @@
 <section id="spaces" class="py-12 px-4 md:px-8" aria-labelledby="spaces-title">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col items-center text-center mb-6">
-      <h2 id="spaces-title" class="text-3xl md:text-6xl font-semibold">SPACES</h2>
+      <h2 id="spaces-title" class="text-3xl md:text-6xl font-semibold">{{ i18n.copy().home.spacesTitle }}</h2>
       <div class="mt-2 text-left">
-        <p class="text-slate-600"><b>Tundra Studio</b> is a spacious 100 m² room that easily transforms into different setups:</p>
-        <ul class="list-disc pl-8">
-          <li>
-            <p class="text-slate-600"><b>Cyclorama</b> — 4×5 m with professional lighting, perfect for fashion, ads, and creative shoots.</p>
-          </li>
-          <li>
-            <p class="text-slate-600"><b>Stylised furniture</b> — a curated set of furniture and decor, adaptable for your vision.</p>
-          </li>
+        <p class="text-slate-600"><b>Tundra Studio</b> {{ i18n.copy().home.spacesIntro }}</p>
+        <ul class="list-disc ps-8">
+          @for (space of i18n.copy().home.indoorSpaces; track space.name) {
+            <li><p class="text-slate-600"><b>{{ space.name }}</b> — {{ space.description }}</p></li>
+          }
         </ul>
-        <p class="text-slate-600 mt-1">You also get access to private outdoor spaces:</p>
-        <ul class="list-disc pl-8">
-          <li>
-            <p class="text-slate-600"><b>Terrace</b> — a secluded area of the house for cozy shoots.</p>
-          </li>
-          <li>
-            <p class="text-slate-600"><b>Rooftop</b> — a rooftop with stunning city views and unforgettable sunsets.</p>
-          </li>
+        <p class="text-slate-600 mt-1">{{ i18n.copy().home.outdoorSpacesIntro }}</p>
+        <ul class="list-disc ps-8">
+          @for (space of i18n.copy().home.outdoorSpaces; track space.name) {
+            <li><p class="text-slate-600"><b>{{ space.name }}</b> — {{ space.description }}</p></li>
+          }
         </ul>
-        <p class="text-slate-600">All in one place — to create diverse stories without changing locations.</p>
+        <p class="text-slate-600">{{ i18n.copy().home.spacesOutro }}</p>
       </div>
     </div>
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
-      @for (space of spaces; track space.id) {
+      @for (space of i18n.copy().home.spaces; track space.name; let index = $index) {
         <article class="group glass overflow-hidden relative">
-          <img [src]="space.image"
-               [alt]="space.name"
-               loading="lazy"
-               decoding="async"
-               class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105"/>
+          <picture>
+            <source type="image/avif"
+                    [srcset]="'images/optimized/spaces/space-' + (index + 1) + '-640.avif 640w, images/optimized/spaces/space-' + (index + 1) + '-1024.avif 1024w'"
+                    sizes="(min-width: 768px) 33vw, 100vw">
+            <source type="image/webp"
+                    [srcset]="'images/optimized/spaces/space-' + (index + 1) + '-640.webp 640w, images/optimized/spaces/space-' + (index + 1) + '-1024.webp 1024w'"
+                    sizes="(min-width: 768px) 33vw, 100vw">
+            <img [src]="space.image" [alt]="space.name" width="1024" height="683" loading="lazy" decoding="async"
+                 class="w-full h-60 object-cover transition-transform duration-500 ease-out transform-gpu group-hover:scale-105">
+          </picture>
           <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 overflow-hidden h-22 transition-[height,opacity] duration-300 ease-in-out lg:h-12 lg:group-hover:h-22">
             <h3 class="text-white font-semibold truncate">{{ space.name }}</h3>
-            <p class="mt-1 text-sm text-white/80 transition-opacity duration-300 ease-in-out line-clamp-2 lg:opacity-0 lg:group-hover:opacity-100">
-              {{ space.description }}
-            </p>
+            <p class="mt-1 text-sm text-white/80 transition-opacity duration-300 ease-in-out line-clamp-2 lg:opacity-0 lg:group-hover:opacity-100">{{ space.description }}</p>
           </div>
         </article>
       }
     </div>
 
     <figure class="flex items-center justify-center">
-      <img ngSrc="images/spaces/studio-plan-transparent.png"
-           alt="Studio plan"
-           width="1600"
-           height="900"
-           loading="lazy"
-           decoding="async"
-           class="w-full md:w-1/2 rounded-xl shadow"/>
+      <img src="images/spaces/studio-plan-transparent.png" [alt]="i18n.copy().home.studioPlanAlt" width="1600" height="900"
+           loading="lazy" decoding="async" class="w-full md:w-1/2 rounded-xl shadow">
     </figure>
   </div>
 </section>
 
 <section id="equipment" class="relative min-h-[100svh]" aria-labelledby="equipment-title">
-  <img ngSrc="images/equipment/equipment-overview.png"
-       alt="Overview of studio equipment"
-       fill
-       class="absolute inset-0 object-cover"
-       loading="lazy"
-       decoding="async"/>
+  <picture class="absolute inset-0 block h-full w-full">
+    <source type="image/avif"
+            srcset="images/optimized/equipment-768.avif 768w, images/optimized/equipment-1280.avif 1280w, images/optimized/equipment-1920.avif 1920w"
+            sizes="100vw">
+    <source type="image/webp"
+            srcset="images/optimized/equipment-768.webp 768w, images/optimized/equipment-1280.webp 1280w, images/optimized/equipment-1920.webp 1920w"
+            sizes="100vw">
+    <img src="images/equipment/equipment-overview.png" [alt]="i18n.copy().home.equipmentAlt" width="2362" height="1329"
+         loading="lazy" decoding="async" class="h-full w-full object-cover">
+  </picture>
   <div class="absolute inset-0 bg-black/45"></div>
 
   <div class="relative flex min-h-[100svh] items-center justify-center text-center p-6">
     <div class="text-white max-w-3xl">
-      <h2 id="equipment-title" class="text-4xl md:text-6xl font-bold leading-tight">EQUIPMENT</h2>
+      <h2 id="equipment-title" class="text-4xl md:text-6xl font-bold leading-tight">{{ i18n.copy().home.equipmentTitle }}</h2>
       <p class="mt-3 text-lg opacity-90">
-        We provide professional equipment to cover every stage of your shoot.
+        {{ i18n.copy().home.equipmentDescription }}
         <br>
-        From powerful studio lights to versatile stands and modifiers — everything you need to bring your vision to life.
+        {{ i18n.copy().home.equipmentDescriptionContinuation }}
       </p>
-      <button type="button" (click)="goToEquipment()" class="mt-3 btn btn--primary">
-        More
-      </button>
+      <a [routerLink]="i18n.pageUrl('equipment')" class="mt-3 btn btn--primary">{{ i18n.copy().actions.more }}</a>
     </div>
   </div>
 </section>
@@ -122,30 +120,27 @@
 <section id="price" class="py-12 px-4 md:px-8" aria-labelledby="price-title">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col items-center text-center mb-2">
-      <h2 id="price-title" class="text-4xl md:text-6xl font-semibold">PRICE LIST</h2>
+      <h2 id="price-title" class="text-4xl md:text-6xl font-semibold">{{ i18n.copy().home.priceTitle }}</h2>
       <ul class="mt-2 text-sm md:text-base text-slate-600 space-y-1">
-        @for (note of priceNotes; track note) {
-          <li class="list-inside">{{ note }}</li>
-        }
+        @for (note of i18n.copy().home.priceNotes; track note) { <li class="list-inside">{{ note }}</li> }
       </ul>
     </div>
-
     <div class="mx-auto w-full max-w-2xl">
       <dl class="divide-y divide-slate-200">
-        @for (rate of studioRates; track rate.label) {
+        @for (rate of studioRates; track rate.price; let index = $index) {
           <div class="flex items-center justify-between py-2">
-            <dt class="text-lg md:text-xl font-light">{{ rate.label }}</dt>
-            <dd class="text-lg md:text-xl font-medium tabular-nums">{{ rate.price }} AED</dd>
+            <dt class="text-lg md:text-xl font-light">{{ i18n.copy().home.hourLabels[index] }}</dt>
+            <dd class="text-lg md:text-xl font-medium tabular-nums"><bdi>{{ rate.price }} AED</bdi></dd>
           </div>
         }
       </dl>
       <div class="pt-4">
-        <h3 class="text-lg md:text-xl font-medium text-center mb-2">ADDITIONAL HOURLY RATE</h3>
+        <h3 class="text-lg md:text-xl font-medium text-center mb-2">{{ i18n.copy().home.additionalRate }}</h3>
         <dl class="divide-y divide-slate-200">
-          @for (extra of additionalRates; track extra.label) {
+          @for (extra of additionalRates; track extra.price; let index = $index) {
             <div class="flex items-center justify-between py-2">
-              <dt class="text-lg md:text-xl font-light">{{ extra.label }}</dt>
-              <dd class="text-lg md:text-xl font-medium tabular-nums">{{ extra.price }} AED</dd>
+              <dt class="text-lg md:text-xl font-light">{{ index === 0 ? i18n.copy().home.daytime : i18n.copy().home.afterHours }}</dt>
+              <dd class="text-lg md:text-xl font-medium tabular-nums"><bdi>{{ extra.price }} AED</bdi></dd>
             </div>
           }
         </dl>
@@ -154,82 +149,50 @@
   </div>
 </section>
 
-<section id="instagram" aria-labelledby="instagram-title">
+<section id="instagram" [attr.aria-label]="i18n.copy().home.instagram">
   <div class="grid grid-cols-5 grid-rows-3 gap-2">
-    <img class="h-full w-full object-cover" src="images/instagram/1.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/2.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/3.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/4.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/5.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/6.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/7.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/8.png" alt="" />
-    <a [href]="contacts.instagram" target="_blank" class="btn btn--instagram">
-      <p class="hidden md:block text-center">VISIT OUR INSTAGRAM</p>
-      <img class="max-h-16 md:mt-3" src="icons/instagram-white-icon.png" alt="instagram">
-    </a>
-    <img class="h-full w-full object-cover" src="images/instagram/10.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/11.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/12.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/13.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/14.png" alt="" />
-    <img class="h-full w-full object-cover" src="images/instagram/15.png" alt="" />
-    <!-- repeat -->
+    @for (image of instagramImages; track image; let index = $index) {
+      @if (index === 8) {
+        <a [href]="contacts.instagram" target="_blank" rel="noopener" class="btn btn--instagram" [attr.aria-label]="i18n.copy().home.instagram">
+          <p class="hidden md:block text-center">{{ i18n.copy().home.instagram }}</p>
+          <img class="max-h-16 md:mt-3" src="icons/instagram-white-icon.png" [alt]="i18n.copy().home.socialAlt.instagram" width="64" height="64">
+        </a>
+      }
+      <picture>
+        <source type="image/avif" [srcset]="'images/optimized/instagram/' + image + '-400.avif'">
+        <source type="image/webp" [srcset]="'images/optimized/instagram/' + image + '-400.webp'">
+        <img class="h-full w-full object-cover" [src]="'images/instagram/' + image + '.png'" alt="" width="400" height="500" loading="lazy" decoding="async">
+      </picture>
+    }
   </div>
 </section>
 
-<section id="contact" class="py-8 px-4 md:px-8">
+<section id="contact" class="py-8 px-4 md:px-8" [attr.aria-labelledby]="'contact-title'">
   <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
     <div class="md:col-span-2">
-      <h2 class="text-2xl md:text-3xl font-semibold">Contacts</h2>
+      <h2 id="contact-title" class="text-2xl md:text-3xl font-semibold">{{ i18n.copy().home.contactsTitle }}</h2>
       <ul class="mt-6 space-y-4 text-slate-800">
         <li class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                  d="M2 5.5C2 4.12 3.12 3 4.5 3h1.18c.62 0 1.18.35 1.45.9l1.2 2.41a1.6 1.6 0 01-.3 1.82L7.1 9.47a12.2 12.2 0 005.43 5.43l1.34-.94a1.6 1.6 0 011.82-.3l2.41 1.2c.55.27.9.83.9 1.45V19.5c0 1.38-1.12 2.5-2.5 2.5H18C10.82 22 4.5 15.68 4.5 8.5V8c0-1.38 1.12-2.5 2.5-2.5"/>
-          </svg>
-          <a class="hover:underline"
-             [href]="'tel:' + contacts.phoneLink">{{ contacts.phoneDisplay }}</a>
+          <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 5.5C2 4.12 3.12 3 4.5 3h1.18c.62 0 1.18.35 1.45.9l1.2 2.41a1.6 1.6 0 01-.3 1.82L7.1 9.47a12.2 12.2 0 005.43 5.43l1.34-.94a1.6 1.6 0 011.82-.3l2.41 1.2c.55.27.9.83.9 1.45V19.5c0 1.38-1.12 2.5-2.5 2.5H18C10.82 22 4.5 15.68 4.5 8.5V8c0-1.38 1.12-2.5 2.5-2.5"/></svg>
+          <a class="hover:underline" [href]="'tel:' + contacts.phoneLink"><bdi>{{ contacts.phoneDisplay }}</bdi></a>
         </li>
-
         <li class="flex items-center gap-3">
-          <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                  d="M3 7l8.4 5.6a2 2 0 002.2 0L22 7M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-          <a class="hover:underline"
-             [href]="'mailto:' + contacts.email">{{ contacts.email }}</a>
+          <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7l8.4 5.6a2 2 0 002.2 0L22 7M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a class="hover:underline" [href]="'mailto:' + contacts.email">{{ contacts.email }}</a>
         </li>
-
         <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 mt-0.5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                  d="M12 21s-6-5.1-6-10a6 6 0 1112 0c0 4.9-6 10-6 10z"/>
-            <circle cx="12" cy="11" r="2.5" stroke-width="1.5"/>
-          </svg>
-          <a class="hover:underline"
-             [href]="contacts.mapUrl" target="_blank" rel="noopener">
-            {{ contacts.address }}
-          </a>
+          <svg class="w-5 h-5 mt-0.5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21s-6-5.1-6-10a6 6 0 1112 0c0 4.9-6 10-6 10z"/><circle cx="12" cy="11" r="2.5" stroke-width="1.5"/></svg>
+          <a class="hover:underline" [href]="contacts.mapUrl" target="_blank" rel="noopener">{{ contacts.address }}</a>
         </li>
       </ul>
     </div>
-
     <div class="flex flex-col justify-center align-center">
       <div class="flex mt-auto gap-4 text-slate-600 justify-center">
-        <a [href]="contacts.instagram" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/instagram.svg" alt="logo" height="35" width="35"/>
-        </a>
-        <a [href]="'https://wa.me/' + contacts.whatsapp" target="_blank" rel="noopener" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/whatsapp.svg" alt="logo" height="35" width="35"/>
-        </a>
-        <a href="//t.me/+GXXYHUr21WxiOGQy" target="_blank" class="block transition-opacity text-inherit hover:opacity-60">
-          <img ngSrc="icons/telegram.svg" alt="logo" height="35" width="35"/>
-        </a>
+        <a [href]="contacts.instagram" target="_blank" rel="noopener" class="block transition-opacity text-inherit hover:opacity-60"><img src="icons/instagram.svg" [alt]="i18n.copy().home.socialAlt.instagram" height="35" width="35"></a>
+        <a [href]="'https://wa.me/' + contacts.whatsapp" target="_blank" rel="noopener" class="block transition-opacity text-inherit hover:opacity-60"><img src="icons/whatsapp.svg" [alt]="i18n.copy().home.socialAlt.whatsapp" height="35" width="35"></a>
+        <a href="https://t.me/+GXXYHUr21WxiOGQy" target="_blank" rel="noopener" class="block transition-opacity text-inherit hover:opacity-60"><img src="icons/telegram.svg" [alt]="i18n.copy().home.socialAlt.telegram" height="35" width="35"></a>
       </div>
-      <button class="mt-4 md:mt-auto btn btn--primary" (click)="openBooking()">
-        Book Studio Now
-      </button>
+      <button type="button" class="mt-4 md:mt-auto btn btn--primary" (click)="openBooking()">{{ i18n.copy().actions.bookStudio }}</button>
     </div>
   </div>
 </section>

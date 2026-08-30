@@ -5,13 +5,16 @@ import {distinctUntilChanged, filter, map, startWith} from 'rxjs';
 import {NgClass} from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import {ContactDialogComponent} from '../contact-dialog/contact-dialog.component';
+import {LocaleService} from '../../i18n/locale.service';
+import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.component';
 
 @Component({
   selector: 'ts-header',
   templateUrl: './header.component.html',
   imports: [
     NgClass,
-    RouterLink
+    RouterLink,
+    LanguageSwitcherComponent
   ]
 })
 export class HeaderComponent {
@@ -21,6 +24,7 @@ export class HeaderComponent {
 
   router = inject(Router);
   dialog = inject(MatDialog);
+  readonly i18n = inject(LocaleService);
 
   @HostListener('window:scroll')
   onScroll() {
@@ -32,7 +36,7 @@ export class HeaderComponent {
 
   private isHomePath(url: string): boolean {
     const clean = url.split('?')[0].split('#')[0].replace(/\/+$/, ''); // strip query/hash and trailing slash
-    return clean === '' || clean === '/' || clean === '/home';
+    return clean === '' || clean === '/' || clean === '/ru' || clean === '/ar';
   }
 
   isHome = toSignal(
@@ -44,14 +48,6 @@ export class HeaderComponent {
     ),
     {initialValue: this.isHomePath(this.router.url)}
   );
-
-  scrollTo(id: string) {
-    if(this.isHome()) {
-      document.getElementById(id)?.scrollIntoView({behavior: 'smooth', block: 'start'});
-    } else {
-      this.router.navigate(['/'], { fragment: id });
-    }
-  }
 
   openContactDialog() {
     this.dialog.open(ContactDialogComponent, { width: '520px', panelClass: 'glass' });

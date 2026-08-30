@@ -1,0 +1,38 @@
+<button
+  type="button"
+  class="flex items-center justify-center rounded px-2 py-2 hover:bg-white/30"
+  [attr.aria-label]="i18n.copy().nav.languages"
+  aria-haspopup="menu"
+  [attr.aria-expanded]="isOpen()"
+  (click)="toggle($event)">
+  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M3 12h18M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21M12 3C9.7 5.5 8.5 8.5 8.5 12s1.2 6.5 3.5 9"></path>
+  </svg>
+</button>
+
+<div
+  class="absolute end-0 top-full z-50 mt-2 min-w-36 overflow-hidden rounded-md bg-white py-1 text-sm text-slate-900 shadow-lg ring-1 ring-black/10"
+  [class.hidden]="!isOpen()"
+  role="menu"
+  [attr.aria-label]="i18n.copy().nav.languages"
+  [attr.aria-hidden]="!isOpen()"
+  (click)="$event.stopPropagation()">
+  @for (language of i18n.languages; track language.locale) {
+    <a
+      role="menuitem"
+      class="flex items-center justify-between gap-4 px-4 py-2 hover:bg-slate-100"
+      [class.font-semibold]="i18n.locale() === language.locale"
+      [attr.aria-current]="i18n.locale() === language.locale ? 'page' : null"
+      [attr.lang]="language.locale"
+      [href]="i18n.languageUrl(language.locale)"
+      (click)="close()">
+      <span>{{ language.label }}</span>
+      @if (i18n.locale() === language.locale) {
+        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4 10 4 4 8-8"></path>
+        </svg>
+      }
+    </a>
+  }
+</div>
