@@ -1,144 +1,40 @@
-<div class="max-w-5xl mx-auto px-6 md:px-10 py-12 my-24 bg-white/90 backdrop-blur rounded-3xl shadow-xl">
-  <header class="mb-8">
-    <h1 class="text-4xl md:text-5xl font-light tracking-tight">Privacy Policy</h1>
-    <p class="text-sm text-slate-500 mt-2">Last updated: <span>2025-08-20</span></p>
+<main class="mx-auto my-24 max-w-5xl rounded-3xl bg-white/90 px-6 py-12 shadow-xl backdrop-blur md:px-10">
+  <header id="top" class="mb-8">
+    <h1 class="text-4xl font-light tracking-tight md:text-5xl">{{ i18n.copy().privacy.title }}</h1>
+    <p class="mt-2 text-sm text-slate-500">{{ i18n.copy().privacy.updated }}</p>
   </header>
 
-  <nav aria-label="Sections" class="mb-10">
+  <nav [attr.aria-label]="i18n.copy().privacy.sectionsLabel" class="mb-10">
     <ul class="flex flex-wrap gap-3 text-sm text-slate-600">
-      <li><a class="hover:underline" (click)="scrollTo('what-we-collect')">What we collect</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('how-we-use')">How we use it</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('legal-bases')">Legal bases</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('cookies')">Cookies</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('analytics')">Analytics</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('payments')">Bookings & payments</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('sharing')">Sharing</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('retention')">Retention</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('security')">Security</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('your-rights')">Your rights</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('children')">Children</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('changes')">Changes</a></li>
-      <li><a class="hover:underline" (click)="scrollTo('contact')">Contact</a></li>
+      @for (section of i18n.copy().privacy.sections; track section.id) {
+        <li><a class="hover:underline" [href]="'#' + section.id">{{ section.title }}</a></li>
+      }
     </ul>
   </nav>
 
-  <section id="intro" class="mb-8">
-    <p class="leading-relaxed text-slate-700">
-      This Privacy Policy explains how we collect, use, and protect personal information when you visit our website
-      and use our services (including viewing our portfolio, booking studio space, and contacting us). If you do not
-      agree with this policy, please refrain from using the site.
-    </p>
+  <section class="mb-8">
+    <p class="leading-relaxed text-slate-700">{{ i18n.copy().privacy.intro }}</p>
   </section>
 
-  <section id="what-we-collect" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Information we collect</h2>
-    <ul class="list-disc pl-6 space-y-2 text-slate-700">
-      <li><span class="font-medium">Contact details</span> (e.g., name, email, phone) when you submit forms or inquiries.</li>
-      <li><span class="font-medium">Booking details</span> (e.g., date, time, selected space, preferences).</li>
-      <li><span class="font-medium">Payment information</span> if purchases are processed (handled by secure third‑party processors; we do not store full card details).</li>
-      <li><span class="font-medium">Usage data</span> (pages viewed, device/browser info, approximate location) for performance and analytics.</li>
-      <li><span class="font-medium">Media submissions</span> you choose to share (e.g., references or project notes).</li>
-    </ul>
-  </section>
+  @for (section of i18n.copy().privacy.sections; track section.id) {
+    <section [id]="section.id" class="mb-8 scroll-mt-24">
+      <h2 class="mb-3 text-2xl font-semibold">{{ section.title }}</h2>
+      @for (paragraph of section.paragraphs ?? []; track paragraph) {
+        <p class="mb-2 leading-relaxed text-slate-700">{{ paragraph }}</p>
+      }
+      @if (section.items?.length) {
+        <ul class="list-disc space-y-2 ps-6 text-slate-700">
+          @for (item of section.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      }
+    </section>
+  }
 
-  <section id="how-we-use" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">How we use your information</h2>
-    <ul class="list-disc pl-6 space-y-2 text-slate-700">
-      <li>Provide and manage bookings, studio access, and customer support.</li>
-      <li>Improve site performance, content relevance, and user experience.</li>
-      <li>Send service communications (confirmations, reminders, updates).</li>
-      <li>Comply with legal obligations and prevent misuse or fraud.</li>
-      <li>With consent, send occasional marketing about new spaces or offers (you can opt out at any time).</li>
-    </ul>
+  <section class="mb-2">
+    <h2 class="mb-3 text-2xl font-semibold">{{ i18n.copy().privacy.contactTitle }}</h2>
+    <p class="leading-relaxed text-slate-700">{{ i18n.copy().privacy.contactText }} <a href="mailto:info@tundrastd.com" class="underline">info&#64;tundrastd.com</a>.</p>
   </section>
-
-  <section id="legal-bases" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Legal bases (EEA/UK users)</h2>
-    <p class="text-slate-700 leading-relaxed">
-      We process personal data under one or more of the following bases: performance of a contract (e.g., your booking),
-      legitimate interests (e.g., site security, service improvement), compliance with a legal obligation, and consent
-      (e.g., optional marketing).
-    </p>
-  </section>
-
-  <section id="cookies" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Cookies & similar technologies</h2>
-    <p class="text-slate-700 leading-relaxed mb-3">
-      We use essential cookies for core functionality and optional cookies for analytics and performance. You can
-      control cookies via your browser settings. If we present a cookie banner, your choices will be honored.
-    </p>
-  </section>
-
-  <section id="analytics" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Analytics</h2>
-    <p class="text-slate-700 leading-relaxed">
-      We may use analytics services (e.g., Google Analytics, privacy‑respecting alternatives) to understand traffic and
-      usage trends. These tools collect information sent by your device or browser and may set their own cookies.
-    </p>
-  </section>
-
-  <section id="sharing" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">When we share information</h2>
-    <ul class="list-disc pl-6 space-y-2 text-slate-700">
-      <li>Service providers acting on our behalf (hosting, storage/CDN, analytics, payment processing, email).</li>
-      <li>Legal or regulatory authorities when required by law or to protect rights and safety.</li>
-      <li>Business transfers (e.g., merger, acquisition) where data may be part of the assets transferred.</li>
-    </ul>
-  </section>
-
-  <section id="retention" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Data retention</h2>
-    <p class="text-slate-700 leading-relaxed">
-      We retain personal information only as long as necessary for the purposes described above, to comply with legal
-      obligations, or to resolve disputes. Retention periods vary by data category and applicable law.
-    </p>
-  </section>
-
-  <section id="security" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Security</h2>
-    <p class="text-slate-700 leading-relaxed">
-      We employ administrative, technical, and physical safeguards designed to protect personal information. However,
-      no method of transmission or storage is 100% secure; we cannot guarantee absolute security.
-    </p>
-  </section>
-
-  <section id="your-rights" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Your rights</h2>
-    <p class="text-slate-700 leading-relaxed mb-2">
-      Depending on your location, you may have rights to access, correct, delete, or restrict processing of your data,
-      and to object or withdraw consent. You may also have data portability rights. To exercise these, contact us.
-    </p>
-    <p class="text-slate-700 leading-relaxed text-sm">
-      California residents (CCPA/CPRA) and EEA/UK residents (GDPR) may have additional rights. We will honor
-      applicable requests subject to verification and legal exceptions.
-    </p>
-  </section>
-
-  <section id="children" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Children's privacy</h2>
-    <p class="text-slate-700 leading-relaxed">
-      Our services are not directed to children under the age required by applicable law. We do not knowingly collect
-      personal information from children. If you believe a child provided us with data, please contact us to remove it.
-    </p>
-  </section>
-
-  <section id="changes" class="mb-8">
-    <h2 class="text-2xl font-semibold mb-3">Changes to this policy</h2>
-    <p class="text-slate-700 leading-relaxed">
-      We may update this Privacy Policy periodically. We will post the updated version here and revise the "Last
-      updated" date above. Significant changes may be communicated via the site or email when appropriate.
-    </p>
-  </section>
-
-  <section id="contact">
-    <h2 class="text-2xl font-semibold mb-3">Contact us</h2>
-    <p class="text-slate-700 leading-relaxed">
-      For privacy questions or requests, email
-      <a href="mailto:privacy@yourdomain.com" class="underline">privacy&#64;yourdomain.com</a>.
-    </p>
-  </section>
-
-  <div class="mt-10">
-    <a class="text-sm text-slate-600 hover:underline" (click)="scrollTo('intro')">Back to top</a>
-  </div>
-</div>
+  <div class="mt-10"><a class="text-sm text-slate-600 hover:underline" href="#top">{{ i18n.copy().actions.backToTop }}</a></div>
+</main>

@@ -1,5 +1,14 @@
-<div id="calendly-embed" class="calendly-inline-widget"
+<section [attr.aria-label]="i18n.copy().booking.title">
+  <h2 class="sr-only">{{ i18n.copy().booking.title }}</h2>
+  @if (loading()) {
+    <p class="p-4 text-center text-sm text-slate-600">{{ i18n.copy().booking.loading }}</p>
+  }
+  @if (failed()) {
+    <p class="p-4 text-center"><a class="underline" href="https://calendly.com/tundra/studio-rental" target="_blank" rel="noopener">{{ i18n.copy().booking.fallback }}</a></p>
+  }
+  <div id="calendly-embed" class="calendly-inline-widget"
      data-auto-load="false"
      style="min-width:320px;height:35rem;">
-</div>
-
+  </div>
+  <noscript><a href="https://calendly.com/tundra/studio-rental">{{ i18n.copy().booking.fallback }}</a></noscript>
+</section>

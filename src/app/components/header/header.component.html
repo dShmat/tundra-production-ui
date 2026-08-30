@@ -1,28 +1,36 @@
 <header class="fixed top-0 left-0 right-0 z-50">
   <div class="glass px-4 md:px-8 py-3" [class.glass]="isScrolled()" [class.blured]="isScrolled()">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      <a class="flex items-center gap-3" routerLink="/">
+      <a class="flex items-center gap-3" [routerLink]="i18n.pageUrl('home')" aria-label="Tundra Studio">
         @if (isHeroEndScrolled() || !isHome()) {
-          <img src="icons/tundra-logo-black.svg" class="h-4 rounded-md" alt="logo">
+          <img src="icons/tundra-logo-black.svg" class="h-4 rounded-md" alt="Tundra Studio">
         } @else {
-          <img src="icons/tundra-logo-white.svg" class="h-4 rounded-md" alt="logo">
+          <img src="icons/tundra-logo-white.svg" class="h-4 rounded-md" alt="Tundra Studio">
         }
       </a>
       <nav class="hidden md:flex items-center gap-4 text-sm" [class.text-black]="isHeroEndScrolled() || !isHome()"
            [class.text-white]="!isHeroEndScrolled() && isHome()">
-        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('spaces')">Spaces</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('equipment')">Equipment</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('price')">Price</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30 cursor-pointer" (click)="scrollTo('contact')">Contact</a>
-        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk
-          <img src="icons/whatsapp-white-icon.svg" alt="whatsapp-green">
-        </a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('spaces')">{{ i18n.copy().nav.spaces }}</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [routerLink]="i18n.pageUrl('equipment')">{{ i18n.copy().nav.equipment }}</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('price')">{{ i18n.copy().nav.price }}</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('contact')">{{ i18n.copy().nav.contact }}</a>
+        <div class="flex items-center gap-1" role="navigation" [attr.aria-label]="i18n.copy().nav.languages">
+          @for (language of i18n.languages; track language.locale) {
+            <a class="rounded px-1.5 py-1 uppercase hover:bg-white/30"
+               [class.font-bold]="i18n.locale() === language.locale"
+               [attr.lang]="language.locale"
+               [href]="i18n.languageUrl(language.locale)">{{ language.locale }}</a>
+          }
+        </div>
+        <button type="button" (click)="openContactDialog()" class="btn btn--whatsap inline-flex">{{ i18n.copy().nav.talk }}
+          <img src="icons/whatsapp-white-icon.svg" [alt]="i18n.copy().home.socialAlt.whatsapp">
+        </button>
       </nav>
       <div class="md:hidden flex items-center">
-        <a (click)="openContactDialog()" class="btn btn--whatsap inline-block">Let's talk
-          <img src="icons/whatsapp-white-icon.svg" alt="whatsapp-green">
-        </a>
-        <button class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())">
+        <button type="button" (click)="openContactDialog()" class="btn btn--whatsap inline-flex">{{ i18n.copy().nav.talk }}
+          <img src="icons/whatsapp-white-icon.svg" [alt]="i18n.copy().home.socialAlt.whatsapp">
+        </button>
+        <button type="button" class="px-3 py-2 rounded" (click)="mobileOpen.set(!mobileOpen())" aria-label="Menu">
                 <span class="text-white"
                       [class.text-black]="isHeroEndScrolled() || !isHome()"
                       [class.text-white]="!isHeroEndScrolled() && isHome()">
@@ -40,14 +48,18 @@
        [ngClass]="mobileOpen() ? 'glass opacity-100 [grid-template-rows:1fr]' : 'pointer-events-none'">
     <div class="min-h-0 py-2">
       <nav class="max-w-7xl mx-auto flex flex-col gap-1 text-sm">
-        <a class="px-3 py-2 rounded hover:bg-white/30"
-           (click)="scrollTo('spaces'); mobileOpen.set(false)">Spaces</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30"
-           (click)="scrollTo('equipment'); mobileOpen.set(false)">Equipment</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30"
-           (click)="scrollTo('price'); mobileOpen.set(false)">Price</a>
-        <a class="px-3 py-2 rounded hover:bg-white/30"
-           (click)="scrollTo('contact'); mobileOpen.set(false)">Contact</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('spaces')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.spaces }}</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [routerLink]="i18n.pageUrl('equipment')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.equipment }}</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('price')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.price }}</a>
+        <a class="px-3 py-2 rounded hover:bg-white/30" [href]="i18n.sectionUrl('contact')" (click)="mobileOpen.set(false)">{{ i18n.copy().nav.contact }}</a>
+        <div class="flex gap-2 px-3 py-2" [attr.aria-label]="i18n.copy().nav.languages">
+          @for (language of i18n.languages; track language.locale) {
+            <a class="rounded border border-black/10 px-3 py-1 uppercase"
+               [class.font-bold]="i18n.locale() === language.locale"
+               [attr.lang]="language.locale"
+               [href]="i18n.languageUrl(language.locale)">{{ language.label }}</a>
+          }
+        </div>
       </nav>
     </div>
   </div>

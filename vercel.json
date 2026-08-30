@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{"type": "host", "value": "tundrastd.com"}],
+      "destination": "https://www.tundrastd.com/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {"source": "/equipment", "destination": "/equipment/index.html"},
+    {"source": "/rules", "destination": "/rules/index.html"},
+    {"source": "/privacy", "destination": "/privacy/index.html"},
+    {"source": "/ru", "destination": "/ru/index.html"},
+    {"source": "/ru/equipment", "destination": "/ru/equipment/index.html"},
+    {"source": "/ru/rules", "destination": "/ru/rules/index.html"},
+    {"source": "/ru/privacy", "destination": "/ru/privacy/index.html"},
+    {"source": "/ar", "destination": "/ar/index.html"},
+    {"source": "/ar/equipment", "destination": "/ar/equipment/index.html"},
+    {"source": "/ar/rules", "destination": "/ar/rules/index.html"},
+    {"source": "/ar/privacy", "destination": "/ar/privacy/index.html"}
+  ]
+}

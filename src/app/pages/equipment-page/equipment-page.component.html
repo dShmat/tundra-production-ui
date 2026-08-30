@@ -1,35 +1,28 @@
-<div class="mx-auto max-w-6xl px-4 py-20">
-  <div class="p-3 mt-4">
-    <div class="flex flex-wrap gap-2 text-sm">
-      <button class="btn btn--soft cursor-pointer" [class.active]="!isDefined(typeSig())" (click)="setType(undefined)">All</button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.VIDEO_LIGHT"
-              (click)="setType(EquipmentType.VIDEO_LIGHT)">Video Light
+<main class="mx-auto max-w-6xl px-4 py-20">
+  <header class="mt-8 max-w-3xl">
+    <h1 class="text-4xl font-semibold tracking-tight md:text-5xl">{{ i18n.copy().equipment.title }}</h1>
+    <p class="mt-4 text-lg leading-relaxed text-slate-600">{{ i18n.copy().equipment.intro }}</p>
+  </header>
+
+  <div class="mt-8 p-3">
+    <div class="flex flex-wrap gap-2 text-sm" role="group" [attr.aria-label]="i18n.copy().nav.equipment">
+      <button type="button" class="btn btn--soft cursor-pointer" [class.active]="!isDefined(typeSig())" (click)="setType(undefined)">
+        {{ i18n.copy().equipment.all }}
       </button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.FLASH_LIGHT"
-              (click)="setType(EquipmentType.FLASH_LIGHT)">Flash Light
-      </button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.MODIFIERS"
-              (click)="setType(EquipmentType.MODIFIERS)">Modifers
-      </button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.SOUND"
-              (click)="setType(EquipmentType.SOUND)">Sound
-      </button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.STANDS"
-              (click)="setType(EquipmentType.STANDS)">Stands
-      </button>
-      <button class="btn btn--soft cursor-pointer" [class.active]="typeSig() === EquipmentType.OTHER"
-              (click)="setType(EquipmentType.OTHER)">Other
-      </button>
+      @for (category of categories; track category) {
+        <button type="button" class="btn btn--soft cursor-pointer" [class.active]="typeSig() === category" (click)="setType(category)">
+          {{ i18n.copy().equipment.categories[category] }}
+        </button>
+      }
     </div>
   </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-      @if (equipment$(); as list) {
-        <ul class="list-disc pl-7">
-          @for (item of list; track item.id) {
-            <li class="black mt-2">{{ item.name }} - {{ item.number }} pcs</li>
-          }
-        </ul>
-        }
-    </div>
-</div>
+  <ul class="mt-6 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2 md:grid-cols-3">
+    @for (item of equipment$(); track item.name) {
+      <li class="border-b border-slate-200 py-3">
+        <span class="font-medium">{{ item.name }}</span>
+        <span class="text-slate-500"> — <bdi>{{ item.number }}</bdi> {{ i18n.copy().equipment.unit }}</span>
+      </li>
+    }
+  </ul>
+</main>

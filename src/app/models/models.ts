@@ -9,7 +9,7 @@ export type PriceRate = { label: string,  price: number };
 export enum EquipmentType {
   VIDEO_LIGHT = 'video light',
   FLASH_LIGHT = 'flash light',
-  MODIFIERS = 'modifers',
+  MODIFIERS = 'modifiers',
   SOUND = 'sound',
   STANDS = 'stands',
   OTHER = 'other',

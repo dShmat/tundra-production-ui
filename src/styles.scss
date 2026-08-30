@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+[dir="rtl"] {
+  text-align: start;
+}
+
 :root {
   --bg-0: #ffffff; --bg-1:#f8f5ff;
   --ink-0: #0b0b10; --ink-1:#4a455e;
@@ -94,5 +106,4 @@ body::before {
   }
 
 }
-
 
